@@ -1,0 +1,24 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: AlphaKR93 <dev@alpha93.kr>
+Date: Sun, 12 Jun 2022 10:57:51 -0500
+Subject: [PATCH] Volt configuration file
+
+
+diff --git a/src/main/java/org/bukkit/Server.java b/src/main/java/org/bukkit/Server.java
+index df44ae5fe2a314b27b215bb23897350cb5f2c0a6..201a2d3bdb6958af66920d24585e1f7f3aa89283 100644
+--- a/src/main/java/org/bukkit/Server.java
++++ b/src/main/java/org/bukkit/Server.java
+@@ -2276,6 +2276,13 @@ public interface Server extends PluginMessageRecipient, net.kyori.adventure.audi
+         }
+         // Plazma end
+ 
++        // Volt start - Volt Configuration API
++        @NotNull
++        public org.bukkit.configuration.file.YamlConfiguration getVoltConfig() {
++            throw new UnsupportedOperationException("Not implemented yet.");
++        }
++        // Volt end
++
+         /**
+          * Sends the component to the player
+          *
