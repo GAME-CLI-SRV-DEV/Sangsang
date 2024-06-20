@@ -35,7 +35,17 @@ Leaves
 # COMPILE
 type ```gradlew applypatches``` and ```gradlew createreobfleavesclipjar```
 
+```gradlew applypatches```를 입력하고 enter를 누르세요.
+
+```gradlew createreobfLeavesclipJar```를 입력하고 enter를 누르세요.
+
 The Filename shouldbe ```Radioactive-leavesclip-1.20.6-R0.1-SNAPSHOT-reobf.jar```
+
+파일 이름은 ```Radioactive-leavesclip-1.20.6-R0.1-SNAPSHOT-reobf.jar```입니다.
+leavesclip은 paperclip의 포크 버전으로, paperclip은 paper의 부트스트랩입니다.
+이 부트스트랩은 server-1.20.4.jar.patch를 생성해 기존 마인크래프트 서버의 DMCA 문제를 해결합니다.
+Mojmap은 server-1.20.4.jar처럼, 기존 Vanilla Mapping을 사용하는 server-1.20.4.jar.patch의 한 종류입니다.
+
 # SAVE FUBAO
 what is going to happen now?
 
