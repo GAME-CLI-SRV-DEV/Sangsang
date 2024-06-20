@@ -4,10 +4,8 @@
 
 ### a Super Bukkit That Implements Following Patches:
 Bukkit
-Geyser
 Spigot
 Paper
-PingAPI
 Tuinity
 Airplane
 Purpur
@@ -17,6 +15,10 @@ Plazma
 NogyangSpigot
 JettPack
 ViaVersion
+Geyser
+PingAPI
+PlaceHolderAPI
+EssentialsX API
 
 [![Discord](https://img.shields.io/discord/1083716853928558652?style=for-the-badge&logo=discord&logoColor=ffffff&label=DISCORD&color=5865F2)](https://discord.gg/MmfC52K8A8)
 [![License](https://img.shields.io/github/license/PlazmaMC/Volt?style=for-the-badge&logo=github&logoColor=ffffff)](LICENSE.md)
@@ -29,8 +31,7 @@ ViaVersion
 </div>
 
 > [!WARNING]
-This project was created to make it easy to **fork a Plazma**! If you're not a developer, but just want to use the Plazma, please refer to the [Plazma repository](https://github.com/PlazmaMC/Plazma).<br>
-본 프로젝트는 Plazma를 쉽게 **포크할 수 있도록** 하기 위해 만들어진 프로젝트입니다! 개발자가 아니고, Plazma를 사용하기 위해 방문했다면, [Plazma 저장소](https://github.com/PlazmaMC/Plazma)를 참조해주세요.
+NogyangSpigot-Bedrock으로 인해 일부 기능이 작동하지 않을 수 있습니다.
 
 ## 📚 Development Guide
 - The development guide is available on the [Volt Wiki](https://github.com/PlazmaMC/Volt/wiki).
