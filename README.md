@@ -32,6 +32,9 @@ EssentialsX API
 
 > [!WARNING]
 NogyangSpigot-Bedrock으로 인해 일부 기능이 작동하지 않을 수 있습니다.
+> [!CAUTION]
+Please Join #BOYCOTTCITESANDWASHINGTONTREATY.
+This Protest will Stay on in case Fu bao(1st korean panda that naturally born.) is abused again. ACTO, Anti CITES Treaty Organization.
 
 ## 📚 Development Guide
 - The development guide is available on the [Volt Wiki](https://github.com/PlazmaMC/Volt/wiki).
