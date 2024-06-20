@@ -16,16 +16,8 @@ plugins {
 // Volt start - Remove this
 if (!file(".git").exists()) {
     val errorText = """
-        
-        =====================[ ERROR ]=====================
-         The Volt project directory is not a properly cloned Git repository.
-         
-         In order to build Volt from source you must clone
-         the repository using Git, not download a code zip from GitHub.
-         If You Downloaded a code zip, type git init.
          프로젝트 디렉토리가 올바르지 않게 복제된 저장소입니다.
          코드를 ZIP으로 받으신 경우 git init을 입력하시고 빌드하세요.
-        ===================================================
     """.trimIndent()
     error(errorText)
 }
