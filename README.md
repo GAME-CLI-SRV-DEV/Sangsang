@@ -1,6 +1,6 @@
 <div align="center">
 
-# Radioactive
+# Radioactive/라디오액티브/放射性
 
 ### a Super Bukkit That Implements Following Patches:
 Bukkit
@@ -31,11 +31,6 @@ Leaves
 
 </div>
 
-> [!WARNING]
-NogyangSpigot-Bedrock으로 인해 일부 기능이 작동하지 않을 수 있습니다.
-> [!CAUTION]
-Please Join #BOYCOTTCITESANDWASHINGTONTREATY.
-This Protest will Stay on in case Fu bao(1st korean panda that naturally born.) is abused again. ACTO, Anti CITES Treaty Organization.
 
 ## 📚 Development Guide
 - The development guide is available on the [Volt Wiki](https://github.com/PlazmaMC/Volt/wiki).
@@ -44,6 +39,13 @@ This Protest will Stay on in case Fu bao(1st korean panda that naturally born.) 
 ## ⚖️ License
 - This project and all patches are licensed under the [MIT license](LICENSE.md) unless otherwise noted in the patch headers.
 - 이 프로젝트와 모든 패치는 패치 헤더에서 다르게 명시되지 않는 한 [MIT 라이선스](LICENSE.md)를 따릅니다.
+
+## SAVE FUBAO!
+일부 패치가 Plazma의 MIT와 Leaves의 GPL-3.0을 혼용합니다.
+사유: 현재 라디오액티브가 푸바오 관련한 시위에 참여중입니다.
+그 결과로 과반수의 패치가 MIT와 GPL 3.0을 혼용하게 됩니다.
+현재 푸바오는 야외 방사장에 공개되어 있으나, 공개 종료 이후 또 다시
+비공개 접객이 예상되어, 현재 시위가 완전 진행형이 되었습니다.
 
 ## 🌀 Sponsorship - Minecraft Development Dictionary (KOREAN)
 [![Minecraft Development Dictionary](https://img.shields.io/discord/911980670123905054?color=%239c91fd&label=MDD&logo=discord&style=for-the-badge&logoColor=ffffff)](https://discord.gg/AZwXTA9Pgx)
