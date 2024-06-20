@@ -1,6 +1,6 @@
 import java.util.Locale
 
-val projectName = "Volt" // Volt - Change this value
+val projectName = "RadioActive" // Volt - Change this value
 
 pluginManagement {
     repositories {
