@@ -22,9 +22,9 @@ if (!file(".git").exists()) {
          
          In order to build Volt from source you must clone
          the repository using Git, not download a code zip from GitHub.
-         
-         See https://github.com/PaperMC/Paper/blob/master/CONTRIBUTING.md
-         for further information on building and modifying Volt.
+         If You Downloaded a code zip, type git init.
+         프로젝트 디렉토리가 올바르지 않게 복제된 저장소입니다.
+         코드를 ZIP으로 받으신 경우 git init을 입력하시고 빌드하세요.
         ===================================================
     """.trimIndent()
     error(errorText)
