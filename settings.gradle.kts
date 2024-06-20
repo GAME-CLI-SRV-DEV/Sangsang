@@ -16,7 +16,7 @@ plugins {
 // Volt start - Remove this
 if (!file(".git").exists()) {
     val errorText = """
-         프로젝트 디렉토리가 올바르지 않게 복제된 저장소입니다.
+         프로젝트 디렉토리가 ZIP으로 복제된 저장소입니다.
          코드를 ZIP으로 받으신 경우 git init을 입력하시고 빌드하세요.
     """.trimIndent()
     error(errorText)
