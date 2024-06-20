@@ -19,6 +19,7 @@ Geyser
 PingAPI
 PlaceHolderAPI
 EssentialsX API
+Leaves
 
 [![Discord](https://img.shields.io/discord/1083716853928558652?style=for-the-badge&logo=discord&logoColor=ffffff&label=DISCORD&color=5865F2)](https://discord.gg/MmfC52K8A8)
 [![License](https://img.shields.io/github/license/PlazmaMC/Volt?style=for-the-badge&logo=github&logoColor=ffffff)](LICENSE.md)
