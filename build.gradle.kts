@@ -14,7 +14,7 @@ plugins {
 
 repositories {
     mavenCentral()
-    maven("https://papermc.io/repo/repository/maven-public/") {
+    maven("https://repo.leavesmc.org/releases") {
         content { onlyForConfigurations(configurations.paperclip.name) }
     }
 }
@@ -30,7 +30,7 @@ kotlin.jvmToolchain(jdkVersion)
 dependencies {
     remapper("net.fabricmc:tiny-remapper:0.8.10:fat")
     decompiler("org.vineflower:vineflower:1.10.1")
-    paperclip("io.papermc:paperclip:3.0.3")
+    paperclip("org.leavesmc.leavesclip:2.0.0")
 }
 
 allprojects {
@@ -80,8 +80,13 @@ subprojects {
     }
 
     repositories {
+        mavenLocal()
         mavenCentral()
         maven("https://papermc.io/repo/repository/maven-public/")
+        maven("https://ci.emc.gs/nexus/content/groups/aikar/")
+        maven("https://repo.aikar.co/content/groups/aikar")
+        maven("https://repo.md-5.net/content/repositories/releases/")
+        maven("https://hub.spigotmc.org/nexus/content/groups/public/")
         maven("https://jitpack.io")
     }
 }
