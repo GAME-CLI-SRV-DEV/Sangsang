@@ -18,7 +18,7 @@ index 6995627310de4911d87a2f93a723d6b93dc0612f..cff534a7c6d0ecaed919aefc9323a3af
          final @Nullable Component history = this.getHistory();
  
 diff --git a/src/main/java/io/papermc/paper/ServerBrandConstants.java b/src/main/java/io/papermc/paper/ServerBrandConstants.java
-index af534fb15..9aaeff0d8 100644
+index af534fb15be2be3e5b4258c522e0e6c967c2bb1c..9aaeff0d82520221f6588b6509b1e7279c7d0085 100644
 --- a/src/main/java/io/papermc/paper/ServerBrandConstants.java
 +++ b/src/main/java/io/papermc/paper/ServerBrandConstants.java
 @@ -5,29 +5,22 @@ import org.jetbrains.annotations.Nullable;
