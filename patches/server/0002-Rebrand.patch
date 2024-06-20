@@ -3,19 +3,6 @@ From: AlphaKR93 <dev@alpha93.kr>
 Date: Mon, 27 May 2024 13:09:01 +0900
 Subject: [PATCH] Rebrand
 
-
-diff --git a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
-index 6995627310de4911d87a2f93a723d6b93dc0612f..cff534a7c6d0ecaed919aefc9323a3afda23fc1a 100644
---- a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
-+++ b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
-@@ -52,7 +52,7 @@ public class PaperVersionFetcher implements VersionFetcher {
-         if (build.buildNumber().isEmpty() && build.gitCommit().isEmpty()) {
-             updateMessage = text("You are running a development version without access to version information", color(0xFF5300));
-         } else {
--            updateMessage = getUpdateStatusMessage("PlazmaMC/Plazma", build); // Purpur // Plazma - Fork-friendly Rebranding
-+            updateMessage = getUpdateStatusMessage("GAME-CLI-SRV-DEV/Radioactive", build); // Purpur // Plazma - Fork-friendly Rebranding // Volt - Rebranding
-         }
-         final @Nullable Component history = this.getHistory();
 diff --git a/src/main/java/io/papermc/paper/ServerBrandConstants.java b/src/main/java/io/papermc/paper/ServerBrandConstants.java
 index b085cb9b49f2b6b1ad72448959d57a5a7b1f1f21..e2209164dc414a7e370eada313126df1243bf544 100644
 --- a/src/main/java/io/papermc/paper/ServerBrandConstants.java
