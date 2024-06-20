@@ -15,11 +15,12 @@ Plazma
 NogyangSpigot
 JettPack
 ViaVersion
-Geyser
+Geyser-Floodgate(you should put both of that plugin)
 PingAPI
 PlaceHolderAPI
 EssentialsX API
 Leaves
+
 
 [![Discord](https://img.shields.io/discord/1083716853928558652?style=for-the-badge&logo=discord&logoColor=ffffff&label=DISCORD&color=5865F2)](https://discord.gg/MmfC52K8A8)
 [![License](https://img.shields.io/github/license/PlazmaMC/Volt?style=for-the-badge&logo=github&logoColor=ffffff)](LICENSE.md)
@@ -31,21 +32,34 @@ Leaves
 
 </div>
 
+# SAVE FUBAO
+what is going to happen now?
 
-## 📚 Development Guide
-- The development guide is available on the [Volt Wiki](https://github.com/PlazmaMC/Volt/wiki).
-- 개발 가이드는 [Volt 위키](https://github.com/PlazmaMC/Volt/wiki)를 참조해주세요.
+at the booting, after ```Starting org.bukkit.craftbukkit.main```, The Following Banner will appear.
+```
+Starting org.bukkit.craftbukkit.main
+NogyangSpigot Selected American English(en_US) as a default language.
+[00:00:00 ERROR]: (!) Attention all gamers and supporters of #PlazmaXLeaves and #Radioactive! We are taking a stand against the mistreatment of our beloved panda, Fu Bao. Recent reports have shown that Fu Bao is living in poor conditions, resulting in scars all
+[00:00:00 ERROR]: over her body. This is unacceptable!
+[00:00:00 ERROR]:
+[00:00:00 ERROR]: We are joining the petition to report China's panda abuse to the International Union for Conservation of Nature (IUCN). We believe that the Convention on International Trade in Endangered Species (CITES) should be held accountable for allowing
+[00:00:00 ERROR]: Fu Bao to live in such an environment.
+[00:00:00 ERROR]:
+[00:00:00 ERROR]: Join us in our protest for Fu Bao. Let's risk getting Radioactive into the list of shame to make our voices heard. Together, we can make a difference. #SupportFuBao #SaveFuBao #BringFuBaoBackToKorea #KoreaChinaFriendsForeverWithFuBao
+[00:00:00 ERROR]: #supportfubao #savefubao #citessux #CITESSucks #bringfubaobacktokorea #koreachinafriendsforeverwithfubao  #PlazmaXLeaves #FuBao #푸바오 #福宝 #플라즈마X리브스 #푸바오와함께
+```
+if you report this as a error, it will be closed with following message.
+```
+Please Ignore This Error. this is for Princess Fu Bao. the 1st baby princess panda in Korea.
+#supportfubao #savefubao #citessux #CITESSucks #bringfubaobacktokorea #koreachinafriendsforeverwithfubao  #PlazmaXLeaves #FuBao
+이 오류 메시지는 오류 메시지가 아닙니다. 푸공주님을 위한 메시지입니다.
+#푸바오 #福宝 #플라즈마X리브스 #푸바오와함께
+```
 
 ## ⚖️ License
 - This project and all patches are licensed under the [MIT license](LICENSE.md) unless otherwise noted in the patch headers.
 - 이 프로젝트와 모든 패치는 패치 헤더에서 다르게 명시되지 않는 한 [MIT 라이선스](LICENSE.md)를 따릅니다.
 
-## SAVE FUBAO!
-일부 패치가 Plazma의 MIT와 Leaves의 GPL-3.0을 혼용합니다.
-사유: 현재 라디오액티브가 푸바오 관련한 시위에 참여중입니다.
-그 결과로 과반수의 패치가 MIT와 GPL 3.0을 혼용하게 됩니다.
-현재 푸바오는 야외 방사장에 공개되어 있으나, 공개 종료 이후 또 다시
-비공개 접객이 예상되어, 현재 시위가 완전 진행형이 되었습니다.
 
 ## 🌀 Sponsorship - Minecraft Development Dictionary (KOREAN)
 [![Minecraft Development Dictionary](https://img.shields.io/discord/911980670123905054?color=%239c91fd&label=MDD&logo=discord&style=for-the-badge&logoColor=ffffff)](https://discord.gg/AZwXTA9Pgx)
