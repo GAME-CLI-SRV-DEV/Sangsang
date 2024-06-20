@@ -32,6 +32,10 @@ Leaves
 
 </div>
 
+# COMPILE
+type ```gradlew applypatches``` and ```gradlew createreobfleavesclipjar```
+
+The Filename shouldbe ```Radioactive-leavesclip-1.20.6-R0.1-SNAPSHOT-reobf.jar```
 # SAVE FUBAO
 what is going to happen now?
 
