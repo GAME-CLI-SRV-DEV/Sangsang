@@ -38,7 +38,8 @@ what is going to happen now?
 at the booting, after ```Starting org.bukkit.craftbukkit.main```, The Following Banner will appear.
 ```
 Starting org.bukkit.craftbukkit.main
-NogyangSpigot Selected American English(en_US) as a default language.
+NogyangSpigot: Selected American English(en_US) as a default language.
+Loading Libraries. Please Wait...
 [00:00:00 ERROR]: (!) Attention all gamers and supporters of #PlazmaXLeaves and #Radioactive! We are taking a stand against the mistreatment of our beloved panda, Fu Bao. Recent reports have shown that Fu Bao is living in poor conditions, resulting in scars all
 [00:00:00 ERROR]: over her body. This is unacceptable!
 [00:00:00 ERROR]:
@@ -48,12 +49,19 @@ NogyangSpigot Selected American English(en_US) as a default language.
 [00:00:00 ERROR]: Join us in our protest for Fu Bao. Let's risk getting Radioactive into the list of shame to make our voices heard. Together, we can make a difference. #SupportFuBao #SaveFuBao #BringFuBaoBackToKorea #KoreaChinaFriendsForeverWithFuBao
 [00:00:00 ERROR]: #supportfubao #savefubao #citessux #CITESSucks #bringfubaobacktokorea #koreachinafriendsforeverwithfubao  #PlazmaXLeaves #FuBao #푸바오 #福宝 #플라즈마X리브스 #푸바오와함께
 ```
-if you report this as a error, it will be closed with following message.
+```Starting org.bukkit.craftbukkit.main``` 메시지 기록 이후, 로그 레벨 ERROR로 다음 메시지가 나타납니다!
 ```
-Please Ignore This Error. this is for Princess Fu Bao. the 1st baby princess panda in Korea.
-#supportfubao #savefubao #citessux #CITESSucks #bringfubaobacktokorea #koreachinafriendsforeverwithfubao  #PlazmaXLeaves #FuBao
-이 오류 메시지는 오류 메시지가 아닙니다. 푸공주님을 위한 메시지입니다.
-#푸바오 #福宝 #플라즈마X리브스 #푸바오와함께
+Starting org.bukkit.craftbukkit.main
+NogyangSpigot: 한국어(ko_KR)를 기본 언어로 선택했습니다.
+Loading Libraries. Please Wait...
+[00:00:00 ERROR]: (!) #PlazmaXLeaves 및 #Radioactive의 모든 게이머와 지지자에게
+[00:00:00 ERROR]: 우리는 사랑하는 아기판다 푸바오에 대한 학대에 맞서고 있습니다. 푸바오는 열악한 환경에서 생활하고 있어 몸 전체에 흉터가 있는 것으로 나타났습니다. 
+[00:00:00 ERROR]: 이것은 용납될 수 없습니다!
+[00:00:00 ERROR]: 우리는 국제자연보전연맹(IUCN)에 이 사실을 고발하려는 청원에 동참하기로 결정을 내렸습니다. 우리는 워싱턴 조약(CITES)을 이 사태의 원인으로
+[00:00:00 ERROR]: 지목하고 있습니다.
+[00:00:00 ERROR]:
+[00:00:00 ERROR]: 푸바오를 위하여 우리의 목소리를 라디오액티브가 kennytv/list-of-shame에 올라가는 것을 감수하고 울리게 만듭시다! 우리는 할 수 있습니다! #SupportFuBao #SaveFuBao #BringFuBaoBackToKorea #KoreaChinaFriendsForeverWithFuBao
+[00:00:00 ERROR]: #supportfubao #savefubao #citessux #CITESSucks #bringfubaobacktokorea #koreachinafriendsforeverwithfubao  #PlazmaXLeaves #FuBao #푸바오 #福宝 #플라즈마X리브스 #푸바오와함께
 ```
 
 ## ⚖️ License
