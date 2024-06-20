@@ -1,8 +1,4 @@
 name: Always Up To Date
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: "*/10 * * * *"
 jobs:
   upstream:
     name: Update Upstream
