@@ -1,0 +1,1324 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: violetc <admin@s-yh-china.com>
+Date: Fri, 29 Oct 2021 16:59:07 +0800
+Subject: [PATCH] Leaves API Patches
+
+diff --git a/build.gradle.kts b/build.gradle.kts
+index 67324689a65e8ed65c9d27c9b50073488c235c51..1450a1c33479e03c4e09ad83dba1bd03c04761de 100644
+--- a/build.gradle.kts
++++ b/build.gradle.kts
+@@ -115,6 +115,16 @@ tasks.withType<JavaCompile> {
+ }
+ // Pufferfish End
+ 
++// Leaves start - hide irrelevant compilation warnings
++tasks.withType<JavaCompile> {
++    val compilerArgs = options.compilerArgs
++    compilerArgs.add("-Xlint:-module")
++    compilerArgs.add("-Xlint:-removal")
++    compilerArgs.add("-Xlint:-dep-ann")
++}
++// Leaves end - hide irrelevant compilation warnings
++
++
+ tasks.jar {
+     from(generateApiVersioningFile.map { it.outputs.files.singleFile }) {
+         into("META-INF/maven/${project.group}/${project.name}")
+@@ -165,6 +175,8 @@ tasks.withType<Javadoc> {
+             into("build/docs/javadoc")
+         }
+     }
++
++    options.addStringOption("Xdoclint:none", "-quiet") // Leaves - hide irrelevant compilation warnings	
+ }
+ 
+ tasks.test {
+diff --git a/src/main/java/org/bukkit/Bukkit.java b/src/main/java/org/bukkit/Bukkit.java
+index 83b979fbb8c0dd64f0a19feef654af2b165bd603..3a6702e4dbda68c14578da94afe496b79b20319e 100644
+--- a/src/main/java/org/bukkit/Bukkit.java
++++ b/src/main/java/org/bukkit/Bukkit.java
+@@ -2908,6 +2908,29 @@ public final class Bukkit {
+         return server.isOwnedByCurrentRegion(entity);
+     }
+     // Paper end - Folia region threading API
++	
++	// Leaves start - Bot API
++    /**
++     * Returns a bot manager.
++     *
++     * @return Bot Manager
++     */
++    public static @NotNull org.leavesmc.leaves.entity.BotManager getBotManager() {
++        return server.getBotManager();
++    }
++    // Leaves end - Bot API
++
++    // Leaves start - Photographer API
++    public static @NotNull org.leavesmc.leaves.entity.PhotographerManager getPhotographerManager() {
++        return server.getPhotographerManager();
++    }
++    // Leaves end - Photographer API
++	
++    // Leaves start - Bytebuf API
++    public static org.leavesmc.leaves.bytebuf.BytebufManager getBytebufManager() {
++        return server.getBytebufManager();
++    }
++    // Leaves end - Bytebuf API
+ 
+     @NotNull
+     public static Server.Spigot spigot() {
+diff --git a/src/main/java/org/bukkit/Server.java b/src/main/java/org/bukkit/Server.java
+index 201a2d3bdb6958af66920d24585e1f7f3aa89283..3273b2441f84ee5791afc77daa3dc3ae2ab233cf 100644
+--- a/src/main/java/org/bukkit/Server.java
++++ b/src/main/java/org/bukkit/Server.java
+@@ -61,6 +61,7 @@ import org.bukkit.util.CachedServerIcon;
+ import org.jetbrains.annotations.Contract;
+ import org.jetbrains.annotations.NotNull;
+ import org.jetbrains.annotations.Nullable;
++import org.leavesmc.leaves.entity.BotManager;
+ 
+ /**
+  * Represents a server implementation.
+@@ -2257,6 +2258,14 @@ public interface Server extends PluginMessageRecipient, net.kyori.adventure.audi
+         }
+         // Paper end
+ 
++		// Leaves start - Not supported yet too // Plazma-Leaves // Fu bao 
++		@NotNull
++		public org.bukkit.configuration.file.YamlConfiguration getLeavesConfig()
++        {
++            throw new UnsupportedOperationException("Not supported yet.");
++        }
++		// Leaves end - Not supported yet too // Plazma-Leaves // Fu bao 
++
+         // Purpur start
+         @NotNull
+         public org.bukkit.configuration.file.YamlConfiguration getPurpurConfig() {
+@@ -2573,6 +2582,26 @@ public interface Server extends PluginMessageRecipient, net.kyori.adventure.audi
+     boolean isOwnedByCurrentRegion(@NotNull Entity entity);
+     // Paper end - Folia region threading API
+ 
++
++    // Leaves start - Bot API
++    /**
++     * Returns a bot manager.
++     *
++     * @return Bot Manager
++     */
++    @NotNull BotManager getBotManager();
++    // Leaves end - Bot API
++ 
++    // Leaves start - Photographer API
++    @NotNull PhotographerManager getPhotographerManager();
++    // Leaves end - Photographer API
++	
++    // Leaves start - Bytebuf API
++    public static org.leavesmc.leaves.bytebuf.BytebufManager getBytebufManager() {
++        return server.getBytebufManager();
++    }
++    // Leaves end - Bytebuf API
++
+     // Purpur start
+     /**
+      * Get the name of this server
+diff --git a/src/main/java/org/bukkit/World.java b/src/main/java/org/bukkit/World.java
+index 83a5b68c785a88594e6e3824ed282844086f7f1a..21e42ee984d3ff29067aabccfd41d5e56fdb7f6a 100644
+--- a/src/main/java/org/bukkit/World.java
++++ b/src/main/java/org/bukkit/World.java
+@@ -4396,6 +4396,13 @@ public interface World extends RegionAccessor, WorldInfo, PluginMessageRecipient
+      */
+     void setSendViewDistance(int viewDistance);
+     // Paper end - view distance api
++	
++    // Leaves start - unsupported settings
++    public void setPeacefulModeSwitchTick(int tick);
++
++    public int getPeacefulModeSwitchTick();
++    // Leaves end - unsupported settings
++
+ 
+     /**
+      * Gets all generated structures that intersect the chunk at the given
+diff --git a/src/main/java/org/bukkit/entity/Player.java b/src/main/java/org/bukkit/entity/Player.java
+index d057743b8f6a463434c1f76398c7a98614b19d47..9b49b479e873eeafab85739379c2d178e036b352 100644
+--- a/src/main/java/org/bukkit/entity/Player.java
++++ b/src/main/java/org/bukkit/entity/Player.java
+@@ -3802,6 +3802,12 @@ public interface Player extends HumanEntity, Conversable, OfflinePlayer, PluginM
+     boolean isChunkSent(long chunkKey);
+     // Paper end
+ 
++    // Leaves start - Bytebuf API
++    void sendPacket(org.leavesmc.leaves.bytebuf.packet.Packet packet);
++
++    void sendPacket(org.leavesmc.leaves.bytebuf.Bytebuf buf, org.leavesmc.leaves.bytebuf.packet.PacketType type);
++    // Leaves end - Bytebuf API
++
+     @NotNull
+     @Override
+     Spigot spigot();
+diff --git a/src/main/java/org/bukkit/event/entity/EntityResurrectEvent.java b/src/main/java/org/bukkit/event/entity/EntityResurrectEvent.java
+index 2f6ad5c2fc7ae7cf22cb424df3543c24f3ee6ebe..2abe36efd1fdb96c1465518c7e7563c2d12f2ee1 100644
+--- a/src/main/java/org/bukkit/event/entity/EntityResurrectEvent.java
++++ b/src/main/java/org/bukkit/event/entity/EntityResurrectEvent.java
+@@ -15,21 +15,45 @@ import org.jetbrains.annotations.Nullable;
+ public class EntityResurrectEvent extends EntityEvent implements Cancellable {
+ 
+     private static final HandlerList handlers = new HandlerList();
+-    //
++    
+     private boolean cancelled;
++	private boolean shrink; // Fu Bao
+ 
+     private final EquipmentSlot hand;
+ 
+-    public EntityResurrectEvent(@NotNull LivingEntity what, @Nullable EquipmentSlot hand) {
++    public EntityResurrectEvent(@NotNull LivingEntity what, @Nullable EquipmentSlot hand, boolean shrink) {
+         super(what);
++        this.shrink = shrink;
+         this.hand = hand;
+     }
++	
++	    public EntityResurrectEvent(@NotNull LivingEntity what, @Nullable EquipmentSlot hand) {
++        this(what, hand, true);
++    }
+ 
+     @Deprecated
+     public EntityResurrectEvent(@NotNull LivingEntity what) {
+-        this(what, null);
++        this(what, null, true);
++    }
++	
++    /**
++     * Get is shrink item
++     *
++     * @return is shrink item
++     */
++    public boolean isShrink() {
++        return shrink;
+     }
+ 
++    /**
++     * Set is shrink item
++     *
++     * @param shrink is shrink item
++     */
++    public void setShrink(boolean shrink) {
++        this.shrink = shrink;
++     }
++
+     @NotNull
+     @Override
+     public LivingEntity getEntity() {
+diff --git a/src/main/java/org/leavesmc/leaves/bytebuf/Bytebuf.java b/src/main/java/org/leavesmc/leaves/bytebuf/Bytebuf.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..657eee1d4a18f765480135ef50f5ef65fdc3ed28
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/bytebuf/Bytebuf.java
+@@ -0,0 +1,102 @@
++package org.leavesmc.leaves.bytebuf;
++
++import com.google.gson.JsonElement;
++import org.bukkit.Bukkit;
++import org.bukkit.inventory.ItemStack;
++
++import java.util.UUID;
++
++public interface Bytebuf {
++
++    static Bytebuf buf(int size) {
++        return Bukkit.getBytebufManager().newBytebuf(size);
++    }
++
++    static Bytebuf buf() {
++        return buf(128);
++    }
++
++    static Bytebuf of(byte[] bytes) {
++        return Bukkit.getBytebufManager().toBytebuf(bytes);
++    }
++
++    byte[] toArray();
++
++    Bytebuf skipBytes(int i);
++
++    int readerIndex();
++
++    Bytebuf readerIndex(int i);
++
++    int writerIndex();
++
++    Bytebuf writerIndex(int i);
++
++    Bytebuf resetReaderIndex();
++
++    Bytebuf resetWriterIndex();
++
++    Bytebuf writeByte(int i);
++
++    byte readByte();
++
++    Bytebuf writeBoolean(boolean b);
++
++    boolean readBoolean();
++
++    Bytebuf writeFloat(float f);
++
++    float readFloat();
++
++    Bytebuf writeDouble(double d);
++
++    double readDouble();
++
++    Bytebuf writeShort(int i);
++
++    short readShort();
++
++    Bytebuf writeInt(int i);
++
++    int readInt();
++
++    Bytebuf writeLong(long i);
++
++    long readLong();
++
++    Bytebuf writeVarInt(int i);
++
++    int readVarInt();
++
++    Bytebuf writeVarLong(long i);
++
++    long readVarLong();
++
++    Bytebuf writeUUID(UUID uuid);
++
++    UUID readUUID();
++
++    Bytebuf writeEnum(Enum<?> instance);
++
++    <T extends Enum<T>> T readEnum(Class<T> enumClass);
++
++    Bytebuf writeUTFString(String utf);
++
++    String readUTFString();
++
++    Bytebuf writeComponentPlain(String str);
++
++    String readComponentPlain();
++
++    Bytebuf writeComponentJson(JsonElement json);
++
++    JsonElement readComponentJson();
++
++    Bytebuf writeItemStack(ItemStack itemStack);
++
++    ItemStack readItemStack();
++
++    Bytebuf copy();
++
++    boolean release();
++}
+diff --git a/src/main/java/org/leavesmc/leaves/bytebuf/BytebufManager.java b/src/main/java/org/leavesmc/leaves/bytebuf/BytebufManager.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..8668e47dee7a23d7843efc4a9752919f7a1dce88
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/bytebuf/BytebufManager.java
+@@ -0,0 +1,15 @@
++package org.leavesmc.leaves.bytebuf;
++
++import org.bukkit.plugin.Plugin;
++import org.leavesmc.leaves.bytebuf.packet.PacketListener;
++
++public interface BytebufManager {
++
++    void registerListener(Plugin plugin, PacketListener listener);
++
++    void unregisterListener(Plugin plugin, PacketListener listener);
++
++    Bytebuf newBytebuf(int size);
++
++    Bytebuf toBytebuf(byte[] bytes);
++}
+diff --git a/src/main/java/org/leavesmc/leaves/bytebuf/packet/Packet.java b/src/main/java/org/leavesmc/leaves/bytebuf/packet/Packet.java
+new file mode 100644
+index 00000000..8bb00c16fe3e6089397cc0fcaaec4715960dd724
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/bytebuf/packet/Packet.java
+@@ -0,0 +1,6 @@
++package org.leavesmc.leaves.bytebuf.packet;
++
++import org.leavesmc.leaves.bytebuf.Bytebuf;
++
++public record Packet(PacketType type, Bytebuf bytebuf) {
++}
+diff --git a/src/main/java/org/leavesmc/leaves/bytebuf/packet/PacketListener.java b/src/main/java/org/leavesmc/leaves/bytebuf/packet/PacketListener.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..e246c0a8725fa3b2be065433652a19a565c7205c
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/bytebuf/packet/PacketListener.java
+@@ -0,0 +1,10 @@
++package org.leavesmc.leaves.bytebuf.packet;
++
++import org.bukkit.entity.Player;
++
++public interface PacketListener {
++
++    Packet onPacketIn(Player player, Packet packet);
++
++    Packet onPacketOut(Player player, Packet packet);
++}
+diff --git a/src/main/java/org/leavesmc/leaves/bytebuf/packet/PacketType.java b/src/main/java/org/leavesmc/leaves/bytebuf/packet/PacketType.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..89c45a056716d0644fe1b41d49a4bdcede53c795
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/bytebuf/packet/PacketType.java
+@@ -0,0 +1,182 @@
++package org.leavesmc.leaves.bytebuf.packet;
++
++public enum PacketType {
++    // ClientboundBundle,
++    // ClientboundBundleDelimiter,
++    ClientboundAddEntity,
++    ClientboundAddExperienceOrb,
++    ClientboundAnimate,
++    ClientboundAwardStats,
++    ClientboundBlockChangedAck,
++    ClientboundBlockDestruction,
++    ClientboundBlockEntityData,
++    ClientboundBlockEvent,
++    ClientboundBlockUpdate,
++    ClientboundBossEvent,
++    ClientboundChangeDifficulty,
++    ClientboundChunkBatchFinished,
++    ClientboundChunkBatchStart,
++    ClientboundChunksBiomes,
++    ClientboundClearTitles,
++    ClientboundCommandSuggestions,
++    ClientboundCommands,
++    ClientboundContainerClose,
++    ClientboundContainerSetContent,
++    ClientboundContainerSetData,
++    ClientboundContainerSetSlot,
++    ClientboundCooldown,
++    ClientboundCustomChatCompletions,
++    ClientboundDamageEvent,
++    ClientboundDebugSample,
++    ClientboundDeleteChat,
++    ClientboundDisguisedChat,
++    ClientboundEntityEvent,
++    ClientboundExplode,
++    ClientboundForgetLevelChunk,
++    ClientboundGameEvent,
++    ClientboundHorseScreenOpen,
++    ClientboundHurtAnimation,
++    ClientboundInitializeBorder,
++    ClientboundLevelChunkWithLight,
++    ClientboundLevelEvent,
++    ClientboundLevelParticles,
++    ClientboundLightUpdate,
++    ClientboundLogin,
++    ClientboundMapItemData,
++    ClientboundMerchantOffers,
++    ClientboundMoveEntityPos,
++    ClientboundMoveEntityPosRot,
++    ClientboundMoveEntityRot,
++    ClientboundMoveVehicle,
++    ClientboundOpenBook,
++    ClientboundOpenScreen,
++    ClientboundOpenSignEditor,
++    ClientboundPlaceGhostRecipe,
++    ClientboundPlayerAbilities,
++    ClientboundPlayerChat,
++    ClientboundPlayerCombatEnd,
++    ClientboundPlayerCombatEnter,
++    ClientboundPlayerCombatKill,
++    ClientboundPlayerInfoRemove,
++    ClientboundPlayerInfoUpdate,
++    ClientboundPlayerLookAt,
++    ClientboundPlayerPosition,
++    ClientboundRecipe,
++    ClientboundRemoveEntities,
++    ClientboundRemoveMobEffect,
++    ClientboundRespawn,
++    ClientboundRotateHead,
++    ClientboundSectionBlocksUpdate,
++    ClientboundSelectAdvancementsTab,
++    ClientboundServerData,
++    ClientboundSetActionBarText,
++    ClientboundSetBorderCenter,
++    ClientboundSetBorderLerpSize,
++    ClientboundSetBorderSize,
++    ClientboundSetBorderWarningDelay,
++    ClientboundSetBorderWarningDistance,
++    ClientboundSetCamera,
++    ClientboundSetCarriedItem,
++    ClientboundSetChunkCacheCenter,
++    ClientboundSetChunkCacheRadius,
++    ClientboundSetDefaultSpawnPosition,
++    ClientboundSetDisplayObjective,
++    ClientboundSetEntityData,
++    ClientboundSetEntityLink,
++    ClientboundSetEntityMotion,
++    ClientboundSetEquipment,
++    ClientboundSetExperience,
++    ClientboundSetHealth,
++    ClientboundSetObjective,
++    ClientboundSetPassengers,
++    ClientboundSetPlayerTeam,
++    ClientboundSetScore,
++    ClientboundSetSimulationDistance,
++    ClientboundSetSubtitleText,
++    ClientboundSetTime,
++    ClientboundSetTitleText,
++    ClientboundSetTitlesAnimation,
++    ClientboundSoundEntity,
++    ClientboundSound,
++    ClientboundStartConfiguration,
++    ClientboundStopSound,
++    ClientboundSystemChat,
++    ClientboundTabList,
++    ClientboundTagQuery,
++    ClientboundTakeItemEntity,
++    ClientboundTeleportEntity,
++    ClientboundUpdateAdvancements,
++    ClientboundUpdateAttributes,
++    ClientboundUpdateMobEffect,
++    ClientboundUpdateRecipes,
++    ClientboundProjectilePower,
++    ServerboundAcceptTeleportation,
++    ServerboundBlockEntityTagQuery,
++    ServerboundChangeDifficulty,
++    ServerboundChatAck,
++    ServerboundChatCommand,
++    ServerboundChatCommandSigned,
++    ServerboundChat,
++    ServerboundChatSessionUpdate,
++    ServerboundChunkBatchReceived,
++    ServerboundClientCommand,
++    ServerboundCommandSuggestion,
++    ServerboundConfigurationAcknowledged,
++    ServerboundContainerButtonClick,
++    ServerboundContainerClick,
++    ServerboundContainerClose,
++    ServerboundContainerSlotStateChanged,
++    ServerboundDebugSampleSubscription,
++    ServerboundEditBook,
++    ServerboundEntityTagQuery,
++    ServerboundInteract,
++    ServerboundJigsawGenerate,
++    ServerboundLockDifficulty,
++    ServerboundMovePlayerPos,
++    ServerboundMovePlayerPosRot,
++    ServerboundMovePlayerRot,
++    ServerboundMovePlayerStatusOnly,
++    ServerboundMoveVehicle,
++    ServerboundPaddleBoat,
++    ServerboundPickItem,
++    ServerboundPlaceRecipe,
++    ServerboundPlayerAbilities,
++    ServerboundPlayerAction,
++    ServerboundPlayerCommand,
++    ServerboundPlayerInput,
++    ServerboundRecipeBookChangeSettings,
++    ServerboundRecipeBookSeenRecipe,
++    ServerboundRenameItem,
++    ServerboundSeenAdvancements,
++    ServerboundSelectTrade,
++    ServerboundSetBeacon,
++    ServerboundSetCarriedItem,
++    ServerboundSetCommandBlock,
++    ServerboundSetCommandMinecart,
++    ServerboundSetCreativeModeSlot,
++    ServerboundSetJigsawBlock,
++    ServerboundSetStructureBlock,
++    ServerboundSignUpdate,
++    ServerboundSwing,
++    ServerboundTeleportToEntity,
++    ServerboundUseItemOn,
++    ServerboundUseItem,
++    ClientboundResetScore,
++    ClientboundTickingState,
++    ClientboundTickingStep,
++    ClientboundCustomPayload,
++    ClientboundDisconnect,
++    ClientboundKeepAlive,
++    ClientboundResourcePackPop,
++    ClientboundResourcePackPush,
++    ClientboundStoreCookie,
++    ClientboundTransfer,
++    ClientboundUpdateTags,
++    ServerboundClientInformation,
++    ServerboundCustomPayload,
++    ServerboundKeepAlive,
++    ServerboundPong,
++    ServerboundResourcePack,
++    ServerboundPingRequest,
++    ClientboundPongResponse
++}
+diff --git a/src/main/java/org/leavesmc/leaves/entity/Bot.java b/src/main/java/org/leavesmc/leaves/entity/Bot.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..922ca5b27bc0dd443d635646f37f879559cc0252
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/entity/Bot.java
+@@ -0,0 +1,51 @@
++package org.leavesmc.leaves.entity;
++
++import org.bukkit.entity.Player;
++import org.jetbrains.annotations.NotNull;
++import org.jetbrains.annotations.Nullable;
++import org.leavesmc.leaves.entity.botaction.LeavesBotAction;
++
++import java.util.UUID;
++
++/**
++ * Represents a fakeplayer
++ */
++public interface Bot extends Player {
++
++    /**
++     * Gets the fakeplayer skin
++     *
++     * @return fakeplayer skin name
++     */
++    @Nullable
++    public String getSkinName();
++
++    /**
++     * Gets the fakeplayer name without prefix and suffix
++     *
++     * @return fakeplayer real name
++     */
++    @NotNull
++    public String getRealName();
++
++    @Nullable
++    public UUID getCreatePlayerUUID();
++
++    /**
++     * Sets the fakeplayer action with args.
++     *
++     * @param action action name
++     * @param player player who create this action
++     * @param args   passed action arguments
++     */
++    public boolean setBotAction(@NotNull String action, @NotNull Player player, @NotNull String[] args);
++
++    /**
++     * Sets the fakeplayer action with args.
++     *
++     * @param action leaves bot action
++     * @param player player who create this action
++     * @param args   passed action arguments
++     */
++    public boolean setBotAction(@NotNull LeavesBotAction action, @NotNull Player player, @NotNull String[] args);
++}
+diff --git a/src/main/java/org/leavesmc/leaves/entity/BotManager.java b/src/main/java/org/leavesmc/leaves/entity/BotManager.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..7662b8bb1bb47f7a85705709548e00a3918d0502
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/entity/BotManager.java
+@@ -0,0 +1,107 @@
++package org.leavesmc.leaves.entity;
++
++import org.bukkit.Location;
++import org.bukkit.util.Consumer;
++import org.jetbrains.annotations.NotNull;
++import org.jetbrains.annotations.Nullable;
++import org.leavesmc.leaves.entity.botaction.CustomBotAction;
++
++import java.util.Collection;
++import java.util.UUID;
++
++/**
++ * Simple fakeplayer manager
++ */
++public interface BotManager {
++
++    /**
++     * Gets a fakeplayer object by the given uuid.
++     *
++     * @param uuid the uuid to look up
++     * @return a fakeplayer if one was found, null otherwise
++     */
++    @Nullable
++    public Bot getBot(@NotNull UUID uuid);
++
++    /**
++     * Gets a fakeplayer object by the given name.
++     *
++     * @param name the name to look up
++     * @return a fakeplayer if one was found, null otherwise
++     */
++    @Nullable
++    public Bot getBot(@NotNull String name);
++
++    /**
++     * Creates a fakeplayer with given param.
++     * <p>
++     * prefix and suffix will not be added.
++     *
++     * @param name fakeplayer name
++     * @param realName fakeplayer real name
++     * @param skin fakeplayer skin arr
++     * @param skinName fakeplayer skin name
++     * @param location a location will create fakeplayer
++     * @return a fakeplayer if success, null otherwise
++     */
++    @Nullable
++    public Bot createBot(@NotNull String name, @NotNull String realName, @Nullable String[] skin, @Nullable String skinName, @NotNull Location location);
++
++    /**
++     * Creates a fakeplayer with given param.
++     *
++     * @param name fakeplayer name
++     * @param skinName fakeplayer skin name
++     * @param location a location will create fakeplayer
++     * @param consumer a consumer after create fakeplayer success
++     */
++    public void createBot(@NotNull String name, @Nullable String skinName, @NotNull Location location, @Nullable Consumer<Bot> consumer);
++
++    /**
++     * Removes a fakeplayer object by the given name.
++     *
++     * @param name the name to look up
++     */
++    public void removeBot(@NotNull String name);
++
++    /**
++     * Removes a fakeplayer object by the given uuid.
++     *
++     * @param uuid the uuid to look up
++     */
++    public void removeBot(@NotNull UUID uuid);
++
++    /**
++     * Removes all fakeplayers.
++     */
++    public void removeAllBots();
++
++    /**
++     * Save fakeplayers data if resident-fakeplayer is true, or remove all fakeplayer.
++     */
++    public void saveOrRemoveAllBots();
++
++    /**
++     * Gets a view of all currently logged in fakeplayers. This view is a reused object, making some operations like Collection.size() zero-allocation.
++     *
++     * @return a view of fakeplayers.
++     */
++    public Collection<Bot> getBots();
++
++    /**
++     * Register a custom bot action.
++     *
++     * @param name action name
++     * @param action action executor
++     * @return true if success, or false
++     */
++    public boolean registerCustomBotAction(String name, CustomBotAction action);
++
++    /**
++     * Unregister a custom bot action.
++     *
++     * @param name action name
++     * @return true if success, or false
++     */
++    public boolean unregisterCustomBotAction(String name);
++}
+diff --git a/src/main/java/org/leavesmc/leaves/entity/Photographer.java b/src/main/java/org/leavesmc/leaves/entity/Photographer.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..cc4226c59aa9f5942bd90e270c5bcd8b354139dd
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/entity/Photographer.java
+@@ -0,0 +1,27 @@
++package org.leavesmc.leaves.entity;
++
++import org.bukkit.entity.Player;
++import org.jetbrains.annotations.NotNull;
++import org.jetbrains.annotations.Nullable;
++
++import java.io.File;
++
++public interface Photographer extends Player {
++
++    @NotNull
++    public String getId();
++
++    public void setRecordFile(@NotNull File file);
++
++    public void stopRecording();
++
++    public void stopRecording(boolean async);
++
++    public void stopRecording(boolean async, boolean save);
++
++    public void pauseRecording();
++
++    public void resumeRecording();
++
++    public void setFollowPlayer(@Nullable Player player);
++}
+diff --git a/src/main/java/org/leavesmc/leaves/entity/PhotographerManager.java b/src/main/java/org/leavesmc/leaves/entity/PhotographerManager.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..492414e9328b3a0cde2157068f00e60eb5e978c6
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/entity/PhotographerManager.java
+@@ -0,0 +1,33 @@
++package org.leavesmc.leaves.entity;
++
++import org.bukkit.Location;
++import org.bukkit.util.Consumer;
++import org.jetbrains.annotations.NotNull;
++import org.jetbrains.annotations.Nullable;
++import org.leavesmc.leaves.entity.botaction.CustomBotAction;
++import org.leavesmc.leaves.replay.BukkitRecorderOption;
++
++import java.util.Collection;
++import java.util.UUID;
++
++public interface PhotographerManager {
++    @Nullable
++    public Photographer getPhotographer(@NotNull UUID uuid);
++
++    @Nullable
++    public Photographer getPhotographer(@NotNull String id);
++
++    @Nullable
++    public Photographer createPhotographer(@NotNull String id, @NotNull Location location);
++
++    @Nullable
++    public Photographer createPhotographer(@NotNull String id, @NotNull Location location, @NotNull BukkitRecorderOption recorderOption);
++
++    public void removePhotographer(@NotNull String id);
++
++    public void removePhotographer(@NotNull UUID uuid);
++
++    public void removeAllPhotographers();
++
++    public Collection<Photographer> getPhotographers();
++}
+diff --git a/src/main/java/org/leavesmc/leaves/entity/botaction/CustomBotAction.java b/src/main/java/org/leavesmc/leaves/entity/botaction/CustomBotAction.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..0b1648013d5f03d064c0719c231981082ab563be
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/entity/botaction/CustomBotAction.java
+@@ -0,0 +1,52 @@
++package org.leavesmc.leaves.entity.botaction;
++
++import org.bukkit.entity.Player;
++import org.jetbrains.annotations.NotNull;
++import org.jetbrains.annotations.Nullable;
++import org.leavesmc.leaves.entity.Bot;
++
++import java.util.List;
++
++/**
++ * Represents a class which contains methods for a custom bot action
++ */
++public interface CustomBotAction {
++
++    /**
++     * Executes the action, returning its success.
++     *
++     * @param bot bot of the action
++     * @return true if once action finish, otherwise false
++     */
++    public boolean doTick(Bot bot);
++
++    /**
++     *  Created a new action instance.
++     *
++     * @param player player who create this action
++     * @param args passed action arguments
++     * @return a new action instance with given args
++     */
++    public @Nullable CustomBotAction getNew(Player player, String[] args);
++
++    /**
++     * Requests a list of possible completions for a action argument.
++     *
++     * @return A List of a List of possible completions for the argument.
++     */
++    public @NotNull List<List<String>> getTabComplete();
++
++    /**
++     * Return a ticks to wait between {@link CustomBotAction#doTick(Bot)}
++     *
++     * @return the ticks to wait between runs
++     */
++    public int getTickDelay();
++
++    /**
++     * Return a number of times {@link CustomBotAction#doTick(Bot)} can return true
++     *
++     * @return the number of times an action can be executed
++     */
++    public int getNumber();
++}
+diff --git a/src/main/java/org/leavesmc/leaves/entity/botaction/LeavesBotAction.java b/src/main/java/org/leavesmc/leaves/entity/botaction/LeavesBotAction.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..b239acd298b299e338ae56aa6507570942ce44e2
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/entity/botaction/LeavesBotAction.java
+@@ -0,0 +1,32 @@
++package org.leavesmc.leaves.entity.botaction;
++
++/**
++ * A Leaves bot action enum
++ */
++public enum LeavesBotAction {
++    ATTACK("attack"),
++    ATTACK_SELF("attack_self"),
++    BREAK("break"),
++    DROP("drop"),
++    FISH("fish"),
++    JUMP("jump"),
++    LAY("lay"),
++    LOOK("look"),
++    ROTATE("rotate"),
++    SNEAK("sneak"),
++    STOP("stop"),
++    SWIM("swim"),
++    USE("use"),
++    USE_ON("use_on"),
++    USE_TO("use_to");
++
++    private final String name;
++
++    private LeavesBotAction(String name) {
++        this.name = name;
++    }
++
++    public String getName() {
++        return name;
++    }
++}
+diff --git a/src/main/java/org/leavesmc/leaves/event/bot/BotActionEvent.java b/src/main/java/org/leavesmc/leaves/event/bot/BotActionEvent.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..91ea5540387b7d7e1be5b6368a2f02b3b784614a
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/event/bot/BotActionEvent.java
+@@ -0,0 +1,49 @@
++package org.leavesmc.leaves.event.bot;
++
++import org.bukkit.event.Cancellable;
++import org.bukkit.event.HandlerList;
++import org.jetbrains.annotations.NotNull;
++import org.leavesmc.leaves.entity.Bot;
++
++public class BotActionEvent extends BotEvent implements Cancellable {
++    private static final HandlerList handlers = new HandlerList();
++
++    private final String actionName;
++    private final String[] actionArgs;
++    private boolean cancel = false;
++
++    public BotActionEvent(@NotNull Bot who, String actionName, String[] actionArgs) {
++        super(who);
++        this.actionArgs = actionArgs;
++        this.actionName = actionName;
++    }
++
++    @NotNull
++    public String[] getActionArgs() {
++        return actionArgs;
++    }
++
++    @NotNull
++    public String getActionName() {
++        return actionName;
++    }
++
++    @Override
++    public @NotNull HandlerList getHandlers() {
++        return handlers;
++    }
++
++    @Override
++    public boolean isCancelled() {
++        return cancel;
++    }
++
++    @Override
++    public void setCancelled(boolean cancel) {
++        this.cancel = cancel;
++    }
++
++    public static HandlerList getHandlerList() {
++        return handlers;
++    }
++}
+diff --git a/src/main/java/org/leavesmc/leaves/event/bot/BotConfigModifyEvent.java b/src/main/java/org/leavesmc/leaves/event/bot/BotConfigModifyEvent.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..5e55759fd3d7891e8e1d5d6a306dc8144d366469
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/event/bot/BotConfigModifyEvent.java
+@@ -0,0 +1,49 @@
++package org.leavesmc.leaves.event.bot;
++
++import org.bukkit.event.Cancellable;
++import org.bukkit.event.HandlerList;
++import org.jetbrains.annotations.NotNull;
++import org.leavesmc.leaves.entity.Bot;
++
++public class BotConfigModifyEvent extends BotEvent implements Cancellable {
++    private static final HandlerList handlers = new HandlerList();
++
++    private final String configName;
++    private final String configValue;
++    private boolean cancel;
++
++    public BotConfigModifyEvent(@NotNull Bot who, String configName, String configValue) {
++        super(who);
++        this.configName = configName;
++        this.configValue = configValue;
++    }
++
++    @NotNull
++    public String getConfigName() {
++        return configName;
++    }
++
++    @NotNull
++    public String getConfigValue() {
++        return configValue;
++    }
++
++    @Override
++    public @NotNull HandlerList getHandlers() {
++        return handlers;
++    }
++
++    @Override
++    public boolean isCancelled() {
++        return cancel;
++    }
++
++    @Override
++    public void setCancelled(boolean cancel) {
++        this.cancel = cancel;
++    }
++
++    public static HandlerList getHandlerList() {
++        return handlers;
++    }
++}
+diff --git a/src/main/java/org/leavesmc/leaves/event/bot/BotCreateEvent.java b/src/main/java/org/leavesmc/leaves/event/bot/BotCreateEvent.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..c093f68e5f1749c792255220f39bdbdffb78f0f9
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/event/bot/BotCreateEvent.java
+@@ -0,0 +1,106 @@
++package org.leavesmc.leaves.event.bot;
++
++import org.bukkit.Location;
++import org.bukkit.event.Cancellable;
++import org.bukkit.event.Event;
++import org.bukkit.event.HandlerList;
++import org.jetbrains.annotations.NotNull;
++import org.jetbrains.annotations.Nullable;
++
++/**
++ * Call when a fakeplayer creates a server
++ */
++public class BotCreateEvent extends Event implements Cancellable {
++    private static final HandlerList handlers = new HandlerList();
++
++    private final String bot;
++    private final String skin;
++    private String joinMessage;
++    private Location createLocation;
++    private boolean cancel = false;
++
++    public BotCreateEvent(@NotNull final String who, @NotNull final String skin, @NotNull final Location createLocation, @Nullable final String joinMessage) {
++        this.bot = who;
++        this.skin = skin;
++        this.joinMessage = joinMessage;
++        this.createLocation = createLocation;
++    }
++
++    /**
++     * Gets the fakeplayer name
++     *
++     * @return fakeplayer name
++     */
++    public String getBot() {
++        return bot;
++    }
++
++    /**
++     * Gets the join message to send to all online players
++     *
++     * @return string join message. Can be null
++     */
++    @Nullable
++    public String getJoinMessage() {
++        return joinMessage;
++    }
++
++    /**
++     * Sets the join message to send to all online players
++     *
++     * @param joinMessage join message. If null, no message will be sent
++     */
++    public void setJoinMessage(@Nullable String joinMessage) {
++        this.joinMessage = joinMessage;
++    }
++
++    /**
++     * Gets the location to create the fakeplayer
++     *
++     * @return Location to create the fakeplayer
++     */
++    @NotNull
++    public Location getCreateLocation() {
++        return createLocation;
++    }
++
++    /**
++     * Sets the location to create the fakeplayer
++     *
++     * @param createLocation location to create the fakeplayer
++     */
++    public void setCreateLocation(@NotNull Location createLocation) {
++        this.createLocation = createLocation;
++    }
++
++    /**
++     * Gets the fakeplayer skin
++     *
++     * @return fakeplayer skin name
++     */
++    @Nullable
++    public String getSkin() {
++        return skin;
++    }
++
++    @Override
++    public boolean isCancelled() {
++        return cancel;
++    }
++
++    @Override
++    public void setCancelled(boolean cancel) {
++        this.cancel = cancel;
++    }
++
++    @Override
++    @NotNull
++    public HandlerList getHandlers() {
++        return handlers;
++    }
++
++    @NotNull
++    public static HandlerList getHandlerList() {
++        return handlers;
++    }
++}
+diff --git a/src/main/java/org/leavesmc/leaves/event/bot/BotEvent.java b/src/main/java/org/leavesmc/leaves/event/bot/BotEvent.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..ad358081f1e1da4075243d7ca0a01c1f7b00631b
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/event/bot/BotEvent.java
+@@ -0,0 +1,31 @@
++package org.leavesmc.leaves.event.bot;
++
++import org.bukkit.event.Event;
++import org.jetbrains.annotations.NotNull;
++import org.leavesmc.leaves.entity.Bot;
++
++/**
++ * Represents a fakeplayer related event
++ */
++public abstract class BotEvent extends Event {
++    protected Bot bot;
++
++    public BotEvent(@NotNull final Bot who) {
++        bot = who;
++    }
++
++    public BotEvent(@NotNull final Bot who, boolean async) { // Paper - public
++        super(async);
++        bot = who;
++    }
++
++    /**
++     * Returns the fakeplayer involved in this event
++     *
++     * @return Fakeplayer who is involved in this event
++     */
++    @NotNull
++    public final Bot getBot() {
++        return bot;
++    }
++}
+diff --git a/src/main/java/org/leavesmc/leaves/event/bot/BotInventoryOpenEvent.java b/src/main/java/org/leavesmc/leaves/event/bot/BotInventoryOpenEvent.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..a369b468d4793b36dd0944a1368a70e07b9fc10f
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/event/bot/BotInventoryOpenEvent.java
+@@ -0,0 +1,46 @@
++package org.leavesmc.leaves.event.bot;
++
++import org.bukkit.entity.Player;
++import org.bukkit.event.Cancellable;
++import org.bukkit.event.HandlerList;
++import org.jetbrains.annotations.NotNull;
++import org.jetbrains.annotations.Nullable;
++import org.leavesmc.leaves.entity.Bot;
++
++public class BotInventoryOpenEvent extends BotEvent implements Cancellable {
++    private static final HandlerList handlers = new HandlerList();
++
++    private final Player player;
++    private boolean cancel = false;
++
++    public BotInventoryOpenEvent(@NotNull Bot who, @Nullable Player player) {
++        super(who);
++        this.player = player;
++    }
++
++    @Override
++    public boolean isCancelled() {
++        return cancel;
++    }
++
++    @Override
++    public void setCancelled(boolean cancel) {
++        this.cancel = cancel;
++    }
++
++    @Nullable
++    public Player getOpenPlayer() {
++        return player;
++    }
++
++
++    @Override
++    public @NotNull HandlerList getHandlers() {
++        return handlers;
++    }
++
++    @NotNull
++    public static HandlerList getHandlerList() {
++        return handlers;
++    }
++}
+diff --git a/src/main/java/org/leavesmc/leaves/event/bot/BotJoinEvent.java b/src/main/java/org/leavesmc/leaves/event/bot/BotJoinEvent.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..7500652ba4ed3c8d59ca003a644a9e024f6512
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/event/bot/BotJoinEvent.java
+@@ -0,0 +1,27 @@
++package org.leavesmc.leaves.event.bot;
++
++import org.bukkit.event.HandlerList;
++import org.jetbrains.annotations.NotNull;
++import org.leavesmc.leaves.entity.Bot;
++
++/**
++ * Called when a fakeplayer joins a server
++ */
++public class BotJoinEvent extends BotEvent {
++    private static final HandlerList handlers = new HandlerList();
++
++    public BotJoinEvent(@NotNull Bot who) {
++        super(who);
++    }
++
++    @Override
++    @NotNull
++    public HandlerList getHandlers() {
++        return handlers;
++    }
++
++    @NotNull
++    public static HandlerList getHandlerList() {
++        return handlers;
++    }
++}
+diff --git a/src/main/java/org/leavesmc/leaves/event/player/PlayerOperationLimitEvent.java b/src/main/java/org/leavesmc/leaves/event/player/PlayerOperationLimitEvent.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..1f5852eb6d53db5774db0ab4eba50bcb8733cfd6
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/event/player/PlayerOperationLimitEvent.java
+@@ -0,0 +1,56 @@
++package org.leavesmc.leaves.event.player;
++
++import org.bukkit.block.Block;
++import org.bukkit.entity.Player;
++import org.bukkit.event.HandlerList;
++import org.bukkit.event.player.PlayerEvent;
++import org.jetbrains.annotations.NotNull;
++
++/**
++ * Called when a player operation is limited
++ */
++public class PlayerOperationLimitEvent extends PlayerEvent {
++    private static final HandlerList handlers = new HandlerList();
++
++    private final Block block;
++    private final Operation operation;
++
++    public PlayerOperationLimitEvent(@NotNull Player who, Operation operation, Block block) {
++        super(who);
++        this.block = block;
++        this.operation = operation;
++    }
++
++    /**
++     * Gets the operated block
++     *
++     * @return block
++     */
++    public Block getBlock() {
++        return block;
++    }
++
++    /**
++     * Gets the type of operation
++     *
++     * @return operation type
++     */
++    public Operation getOperation() {
++        return operation;
++    }
++
++    @NotNull
++    @Override
++    public HandlerList getHandlers() {
++        return handlers;
++    }
++
++    @NotNull
++    public static HandlerList getHandlerList() {
++        return handlers;
++    }
++
++    public enum Operation {
++        MINE, PLACE
++    }
++}
+diff --git a/src/main/java/org/leavesmc/leaves/replay/BukkitRecorderOption.java b/src/main/java/org/leavesmc/leaves/replay/BukkitRecorderOption.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..320e8bc0516580d946fa43671bd71094eade0422
+--- /dev/null
++++ b/src/main/java/org/leavesmc/leaves/replay/BukkitRecorderOption.java
+@@ -0,0 +1,18 @@
++package org.leavesmc.leaves.replay;
++
++public class BukkitRecorderOption {
++
++    // public int recordDistance = -1;
++    public String serverName = "Leaves";
++    public BukkitRecordWeather forceWeather = BukkitRecordWeather.NULL;
++    public int forceDayTime = -1;
++    public boolean ignoreChat = false;
++    // public boolean ignoreItem = false;
++
++    public enum BukkitRecordWeather {
++        CLEAR,
++        RAIN,
++        THUNDER,
++        NULL
++    }
++}
