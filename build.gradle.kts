@@ -12,13 +12,6 @@ plugins {
     id("io.papermc.paperweight.patcher") version "1.7.1"
 }
 
-repositories {
-    mavenCentral()
-    maven("https://repo.leavesmc.org/releases") {
-        content { onlyForConfigurations(configurations.paperclip.name) }
-    }
-}
-
 val jdkVersion = property("jdkVersion").toString().toInt()
 val projectName = property("brandName").toString()
 val projectRepo = property("providerRepo").toString()
@@ -26,6 +19,13 @@ val upstreamRef = property("plazmaRef").toString()
 val upstreamCommitValue = property("plazmaCommit").toString()
 
 kotlin.jvmToolchain(jdkVersion)
+
+repositories {
+    mavenCentral()
+    maven("https://repo.leavesmc.org/releases") {
+        content { onlyForConfigurations(configurations.paperclip.name) }
+    }
+}
 
 dependencies {
     remapper("net.fabricmc:tiny-remapper:0.8.10:fat")
