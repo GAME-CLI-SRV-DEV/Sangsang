@@ -78,6 +78,11 @@ Loading Libraries. Please Wait...
 [00:00:00 ERROR]: #supportfubao #savefubao #citessux #CITESSucks #bringfubaobacktokorea #koreachinafriendsforeverwithfubao  #PlazmaXLeaves #FuBao #푸바오 #福宝 #플라즈마X리브스 #푸바오와함께
 ```
 
+-------------------------------------------------------- QUESTIONS --------------------------------------------------------
+
+Are You Taking a Risk?
+
+Yes, eventhough Radioactive will added to https://github.com/kennytv/list-of-shame, we will stand againist CITES.
 ## ⚖️ License
 - This project and all patches are licensed under the [MIT license](LICENSE.md) unless otherwise noted in the patch headers.
 - 이 프로젝트와 모든 패치는 패치 헤더에서 다르게 명시되지 않는 한 [MIT 라이선스](LICENSE.md)를 따릅니다.
