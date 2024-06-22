@@ -109,7 +109,7 @@ index 201a2d3bdb6958af66920d24585e1f7f3aa89283..3273b2441f84ee5791afc77daa3dc3ae
 +    // Leaves end - Bot API
 + 
 +    // Leaves start - Photographer API
-+    public static @NotNull PhotographerManager getPhotographerManager();
++    // public static @NotNull PhotographerManager getPhotographerManager();
 +    // Leaves end - Photographer API
 +	
 +    // Leaves start - Bytebuf API
