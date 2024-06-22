@@ -21,7 +21,18 @@ PlaceHolderAPI
 EssentialsX API
 Leaves
 
+```
+0004-0077 패치를 Leaves에서 가져왔습니다.
+Leaves 측 LICENSE
 
+GNU GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
+
+Copyright (C) 2007 Free Software Foundation, Inc. https://fsf.org/
+
+Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
+```
+Leaves 
 [![Discord](https://img.shields.io/discord/1083716853928558652?style=for-the-badge&logo=discord&logoColor=ffffff&label=DISCORD&color=5865F2)](https://discord.gg/MmfC52K8A8)
 [![License](https://img.shields.io/github/license/PlazmaMC/Volt?style=for-the-badge&logo=github&logoColor=ffffff)](LICENSE.md)
 [![Stargazers](https://img.shields.io/github/stars/PlazmaMC/Volt?label=stars&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9bxSIVh1YQcYhQnSyIiuimVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APE0clJ0UVK/F9SaBHjwXE/3t173L0D/PUyU82OMUDVLCOViAuZ7KrQ9YogwujDEGYkZupzopiE5/i6h4+vdzGe5X3uz9Gj5EwG+ATiWaYbFvEG8dSmpXPeJ46woqQQnxOPGnRB4keuyy6/cS447OeZESOdmieOEAuFNpbbmBUNlXiSOKqoGuX7My4rnLc4q+Uqa96TvzCU01aWuU5zEAksYgkiBMioooQyLMRo1UgxkaL9uId/wPGL5JLJVQIjxwIqUCE5fvA/+N2tmZ8Yd5NCcaDzxbY/hoGuXaBRs+3vY9tunACBZ+BKa/krdWD6k/RaS4seAb3bwMV1S5P3gMsdoP9JlwzJkQI0/fk88H5G35QFwrdA95rbW3Mfpw9AmrpK3gAHh8BIgbLXPd4dbO/t3zPN/n4Ax9dyyerighsAAAAGYktHRAAAAAAAAPlDu38AAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfmCBMVNjtc7/hFAAABIElEQVQ4y62SzS5DURSFv6smXkAUCRU0UdKYGNTPyCsYYOYFGGi8Ao9QM0PxCh6CgQ4qfiLpBFEjdKCfySaXtDch1uScs9Ze62TvcyAD6o66zV+gjqpvalsd61XXl5GxBySx3/3t7UPqi1pTD9VXdaRbbZIyDQLTwBSwBqzGGaABnAInwCXQSJLk/tO4orb8jra6nwo/CC6NlrqMOq421Y5aVSfUXJe2cqFVo7b5NdwIuVaf1IWM2cyrD+qdOvlTLERIS53pYi6FdqMWet2wGP1tdNE2Q1vK+gfDsdbDlFfzwV3Ems8KmAXegcd4hSvgVq0Bz6GV0ob+HgF1YAA4Cn4LWA9tLusHnscTHavFFF8MrqOeZQVU1HKGXlYr/Cc+AKuOI2h/Jrf7AAAAAElFTkSuQmCC&style=for-the-badge&color=green)](https://github.com/PlazmaMC/Volt/stargazers)
@@ -43,8 +54,16 @@ The Filename shouldbe ```Radioactive-leavesclip-1.20.6-R0.1-SNAPSHOT-reobf.jar``
 
 파일 이름은 ```Radioactive-leavesclip-1.20.6-R0.1-SNAPSHOT-reobf.jar```입니다.
 leavesclip은 paperclip의 포크 버전으로, paperclip은 paper의 부트스트랩입니다.
-이 부트스트랩은 server-1.20.4.jar.patch를 생성해 기존 마인크래프트 서버의 DMCA 문제를 해결합니다.
-Mojmap은 server-1.20.4.jar처럼, 기존 Vanilla Mapping을 사용하는 server-1.20.4.jar.patch의 한 종류입니다.
+이 부트스트랩은 server-버전.jar.patch를 생성해 기존 마인크래프트 서버의 DMCA 문제를 해결합니다.
+Mojmap은 server-버전.jar처럼, 기존 Vanilla Mapping을 사용하는 server-버전.jar.patch의 한 종류입니다.
+
+# Forks + Main
+| 이름 | API | 지원 로더 | 지원 중단 여부 | 중단 사유 |
+| :---:         | :---:                         | :---:            | :---:         | :---:          |
+| RadioActive(라디오액티브) | Bukkit API, Spigot API, Paper API, Tuinity API, Airplane API, Purpur API, Pufferfish API, Petal API, Plazma API, Leaves API | 버킷 플러그인, 스피곳 플러그인, 페이퍼 플러그인, 튜이니티 플러그인, 에어플레인 플러그인, 퍼퍼 플러그인 , 퍼퍼피쉬 플러그인, 페탈 플러그인, 플라즈마 플러그인, 리브스 플러그인 | X | - | - |
+| - | - | - | - | - | - |
+| - | - | - | - | - | - |
+| - | - | - | - | - | - |
 
 # SAVE FUBAO
 what is going to happen now?
