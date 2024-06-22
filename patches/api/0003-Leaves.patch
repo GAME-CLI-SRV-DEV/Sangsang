@@ -55,7 +55,7 @@ index 83b979fbb8c0dd64f0a19feef654af2b165bd603..3a6702e4dbda68c14578da94afe496b7
 +
 +    // Leaves start - Photographer API
 +    public static @NotNull org.leavesmc.leaves.entity.PhotographerManager getPhotographerManager() {
-+        return org.bukkit.Server.getPhotographerManager();
++        return this.getPhotographerManager();
 +    }
 +    // Leaves end - Photographer API
 +	
