@@ -775,7 +775,7 @@ index 0000000000000000000000000000000000000000..492414e9328b3a0cde2157068f00e60e
 +import java.util.Collection;
 +import java.util.UUID;
 +
-+public interface PhotographerManager {
++public static interface PhotographerManager {
 +    @Nullable
 +    public Photographer getPhotographer(@NotNull UUID uuid);
 +
