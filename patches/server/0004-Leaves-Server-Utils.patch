@@ -31,7 +31,7 @@ index 46954db7ecd35ac4018fdf476df7c8020d7ce6c8..044c51ebb058fc36074fd178929e3279
      public PlayerAreaMap() {
          super();
 diff --git a/src/main/java/net/minecraft/world/entity/Entity.java b/src/main/java/net/minecraft/world/entity/Entity.java
-index 3a9d8e64d0a02a40a89cd82e014ed1bebcd6b8b3..864e6d223de55f42122485bf6a3c84bbb636479c 100644
+index 227b924800b14732a31817d037d988d31df17dc4..963b9400fb8cccdd9f034d19defbd1c9007cbd07 100644
 --- a/src/main/java/net/minecraft/world/entity/Entity.java
 +++ b/src/main/java/net/minecraft/world/entity/Entity.java
 @@ -426,6 +426,7 @@ public abstract class Entity implements SyncedDataHolder, Nameable, EntityAccess
