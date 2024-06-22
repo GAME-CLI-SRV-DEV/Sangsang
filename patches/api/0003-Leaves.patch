@@ -109,7 +109,7 @@ index 201a2d3bdb6958af66920d24585e1f7f3aa89283..3273b2441f84ee5791afc77daa3dc3ae
 +    // Leaves end - Bot API
 + 
 +    // Leaves start - Photographer API
-+    @NotNull PhotographerManager getPhotographerManager();
++    public static @NotNull PhotographerManager getPhotographerManager();
 +    // Leaves end - Photographer API
 +	
 +    // Leaves start - Bytebuf API
@@ -775,7 +775,7 @@ index 0000000000000000000000000000000000000000..492414e9328b3a0cde2157068f00e60e
 +import java.util.Collection;
 +import java.util.UUID;
 +
-+public static interface PhotographerManager {
++public interface PhotographerManager {
 +    @Nullable
 +    public Photographer getPhotographer(@NotNull UUID uuid);
 +
