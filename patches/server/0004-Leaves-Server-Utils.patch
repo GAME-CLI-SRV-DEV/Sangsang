@@ -31,26 +31,26 @@ index 46954db7ecd35ac4018fdf476df7c8020d7ce6c8..044c51ebb058fc36074fd178929e3279
      public PlayerAreaMap() {
          super();
 diff --git a/src/main/java/net/minecraft/world/entity/Entity.java b/src/main/java/net/minecraft/world/entity/Entity.java
-index 7ef9f67d27cc240191dd5d07e8dcf5fbdebe1049..864e6d223de55f42122485bf6a3c84bbb636479c 100644
+index 3a9d8e64d0a02a40a89cd82e014ed1bebcd6b8b3..864e6d223de55f42122485bf6a3c84bbb636479c 100644
 --- a/src/main/java/net/minecraft/world/entity/Entity.java
 +++ b/src/main/java/net/minecraft/world/entity/Entity.java
-@@ -425,6 +425,7 @@ public abstract class Entity implements SyncedDataHolder, Nameable, EntityAccess
+@@ -426,6 +426,7 @@ public abstract class Entity implements SyncedDataHolder, Nameable, EntityAccess
      private UUID originWorld;
      public boolean freezeLocked = false; // Paper - Freeze Tick Lock API
      public boolean fixedPose = false; // Paper - Expand Pose API
-+    private CompoundTag leavesData = new CompoundTag(); // Leaves - Leaves ex data
- 
-     public void setOrigin(@javax.annotation.Nonnull Location location) {
-         this.origin = location.toVector();
-@@ -2554,6 +2555,7 @@ public abstract class Entity implements SyncedDataHolder, Nameable, EntityAccess
++       private CompoundTag leavesData = new CompoundTag(); // Leaves - Leaves ex data
+     public boolean activatedPriorityReset = false; // Pufferfish - DAB
+     public int activatedPriority = gg.pufferfish.pufferfish.PufferfishConfig.maximumActivationPrio; // Pufferfish - DAB (golf score)
+     public final BlockPos.MutableBlockPos cachedBlockPos = new BlockPos.MutableBlockPos(); // Pufferfish - reduce entity allocations
+@@ -2585,6 +2586,7 @@ public abstract class Entity implements SyncedDataHolder, Nameable, EntityAccess
                  nbttagcompound.putBoolean("Paper.FreezeLock", true);
              }
              // Paper end
-+            nbttagcompound.put("Leaves.Data", leavesData); // Leaves - leaves ex data
-             return nbttagcompound;
-         } catch (Throwable throwable) {
-             CrashReport crashreport = CrashReport.forThrowable(throwable, "Saving entity NBT");
-@@ -2701,6 +2703,11 @@ public abstract class Entity implements SyncedDataHolder, Nameable, EntityAccess
++                       nbttagcompound.put("Leaves.Data", leavesData); // Leaves - leaves ex data
+             // Purpur start
+             if (immuneToFire != null) {
+                 nbttagcompound.putBoolean("Purpur.FireImmune", immuneToFire);
+@@ -2737,6 +2739,11 @@ public abstract class Entity implements SyncedDataHolder, Nameable, EntityAccess
                  freezeLocked = nbt.getBoolean("Paper.FreezeLock");
              }
              // Paper end
@@ -59,20 +59,24 @@ index 7ef9f67d27cc240191dd5d07e8dcf5fbdebe1049..864e6d223de55f42122485bf6a3c84bb
 +                leavesData = nbt.getCompound("Leaves.Data");
 +            }
 +            // Leaves end - leaves ex data
- 
-         } catch (Throwable throwable) {
-             CrashReport crashreport = CrashReport.forThrowable(throwable, "Loading entity NBT");
-@@ -5000,4 +5007,10 @@ public abstract class Entity implements SyncedDataHolder, Nameable, EntityAccess
-         return ((net.minecraft.server.level.ServerChunkCache) level.getChunkSource()).isPositionTicking(this);
+             // Purpur start
+             if (nbt.contains("Purpur.FireImmune")) {
+                 immuneToFire = nbt.getBoolean("Purpur.FireImmune");
+@@ -5132,6 +5139,13 @@ public abstract class Entity implements SyncedDataHolder, Nameable, EntityAccess
      }
      // Paper end - Expose entity id counter
+
 +
 +    // Leaves start - leaves ex data
 +    public CompoundTag getLeavesData() {
 +        return leavesData;
 +    }
 +    // Leaves end - leaves ex data
- }
++
+     // Purpur start
+     @Nullable
+     private Player rider = null;
+
 diff --git a/src/main/java/org/leavesmc/leaves/LeavesLogger.java b/src/main/java/org/leavesmc/leaves/LeavesLogger.java
 new file mode 100644
 index 0000000000000000000000000000000000000000..730174b8c26375510c919fd841dc9371446ae8f2
