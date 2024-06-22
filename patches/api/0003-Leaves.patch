@@ -1,4 +1,4 @@
-From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+ULFrom 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: violetc <admin@s-yh-china.com>
 Date: Fri, 29 Oct 2021 16:59:07 +0800
 Subject: [PATCH] Leaves API Patches
@@ -55,7 +55,7 @@ index 83b979fbb8c0dd64f0a19feef654af2b165bd603..3a6702e4dbda68c14578da94afe496b7
 +
 +    // Leaves start - Photographer API
 +    public static @NotNull org.leavesmc.leaves.entity.PhotographerManager getPhotographerManager() {
-+        return Server.getPhotographerManager();
++        return org.bukkit.Server.getPhotographerManager();
 +    }
 +    // Leaves end - Photographer API
 +	
@@ -114,7 +114,7 @@ index 201a2d3bdb6958af66920d24585e1f7f3aa89283..3273b2441f84ee5791afc77daa3dc3ae
 +	
 +    // Leaves start - Bytebuf API
 +    public static org.leavesmc.leaves.bytebuf.BytebufManager getBytebufManager() {
-+        return server.getBytebufManager();
++        return Server.getBytebufManager();
 +    }
 +    // Leaves end - Bytebuf API
 +
