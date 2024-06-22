@@ -61,7 +61,7 @@ index 83b979fbb8c0dd64f0a19feef654af2b165bd603..3a6702e4dbda68c14578da94afe496b7
 +	
 +    // Leaves start - Bytebuf API
 +    public static org.leavesmc.leaves.bytebuf.BytebufManager getBytebufManager() {
-+        return Server.getBytebufManager();
++        return org.bukkit.Server.getBytebufManager();
 +    }
 +    // Leaves end - Bytebuf API
  
