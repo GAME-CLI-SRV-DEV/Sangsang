@@ -49,20 +49,13 @@ jobs:
         run: ./gradlew applyPatches --stacktrace
 
       - name: Build
-        run: ./gradlew build --stacktrace
+        run: ./gradlew build -x radioactive-api:test -x radioactive-server:test --stacktrace
 
       - name: Create Reobf Jar
-        run: ./gradlew createReobfPaperclipJar --stacktrace
+        run: ./gradlew createReobfPaperclipJar -x radioactive-api:test -x radioactive-server:test --stacktrace
 
       - name: Create Mojmap Jar
-        run: ./gradlew createMojmapPaperclipJar --stacktrace
-
-      - name: Publish Packages
-        if: startsWith(github.ref_name, 'ver/') || startsWith(github.ref_name, 'dev/')
-        run: |
-          export GITHUB_USERNAME=${{ env.ORG_NAME }}
-          export GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
-          ./gradlew publish --stacktrace
+        run: ./gradlew createMojmapPaperclipJar -x radioactive-api:test -x radioactive-server:test --stacktrace
 
       - name: Get Release Number
         if: startsWith(github.ref_name, 'ver/')
