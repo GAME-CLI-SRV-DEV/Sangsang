@@ -22,15 +22,7 @@ EssentialsX API
 Leaves
 
 ```
-0004-0077 패치를 Leaves에서 가져왔습니다.
-Leaves 측 LICENSE
-
-GNU GENERAL PUBLIC LICENSE
-Version 3, 29 June 2007
-
-Copyright (C) 2007 Free Software Foundation, Inc. https://fsf.org/
-
-Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
+Leaves 테스트 진행 중...
 ```
 Leaves 
 [![Discord](https://img.shields.io/discord/1083716853928558652?style=for-the-badge&logo=discord&logoColor=ffffff&label=DISCORD&color=5865F2)](https://discord.gg/MmfC52K8A8)
