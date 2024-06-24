@@ -51,11 +51,16 @@ jobs:
       - name: Build
         run: ./gradlew build -x radioactive-api:test -x radioactive-server:test --stacktrace
 
-      - name: Create Reobf Jar
+      - name: Create Reobf Jar(Paperclip Lv 1)
         run: ./gradlew createReobfPaperclipJar -x radioactive-api:test -x radioactive-server:test --stacktrace
 
-      - name: Create Mojmap Jar
+      - name: Create Mojmap Jar(Paperclip Lv 1)
         run: ./gradlew createMojmapPaperclipJar -x radioactive-api:test -x radioactive-server:test --stacktrace
+
+      - name: Create Reobf Jar
+        run: ./gradlew createReobfLeavesclipJar -x radioactive-api:test -x radioactive-server:test --stacktrace
+      - name: Create Mojmap Jar
+        run: ./gradlew createMojmapLeavesclipJar -x radioactive-api:test -x radioactive-server:test --stacktrace
 
       - name: Get Release Number
         if: startsWith(github.ref_name, 'ver/')
