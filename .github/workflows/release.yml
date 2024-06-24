@@ -65,7 +65,11 @@ jobs:
       - name: Get Release Number
         if: startsWith(github.ref_name, 'ver/')
         run: echo "RELEASE=$(git ls-remote --tags origin | grep "build/${{ env.MC_VERSION }}" | wc -l)" >> $GITHUB_ENV
-
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: RadioActiveJAR
+          path: build/libs/
       - name: Release Artifacts
         if: startsWith(github.ref_name, 'ver/')
         uses: softprops/action-gh-release@v0.1.15
@@ -76,7 +80,6 @@ jobs:
           generate_release_notes: true
           fail_on_unmatched_files: true
           files: build/libs/*.jar
-
       - name: Release Artifacts (Latest/Stable)
         if: startsWith(github.ref_name, 'ver/')
         uses: softprops/action-gh-release@v0.1.15
