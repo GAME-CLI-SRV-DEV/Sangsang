@@ -244,8 +244,8 @@ tasks.register("createMojmapLeavesclipJar") {
     group = "paperweight"
     dependsOn("createMojmapPaperclipJar")
     doLast {
-        file("build/libs/Leaves-paperclip-${project.version}-mojmap.jar").renameTo(
-            file("build/libs/Leaves-leavesclip-${project.version}-mojmap.jar")
+        file("build/libs/$projectName-paperclip-${project.version}-mojmap.jar").renameTo(
+            file("build/libs/$projectName-leavesclip-${project.version}-mojmap.jar")
         )
     }
 }
