@@ -23,4 +23,4 @@ echo Leaves By Violetc
 echo Patina by PatinaMC
 echo Jettpack By TitaniumTown
 echo APPLYING PATCHES...
-gradlew applypatches && gradlew createreobfpaperclipjar && pause
+gradlew applypatches && gradlew createreobfleavesclipjar && pause
