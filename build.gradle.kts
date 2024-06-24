@@ -254,8 +254,8 @@ tasks.register("createReobfLeavesclipJar") {
     group = "paperweight"
     dependsOn("createReobfPaperclipJar")
     doLast {
-        file("build/libs/Leaves-paperclip-${project.version}-reobf.jar").renameTo(
-            file("build/libs/Leaves-leavesclip-${project.version}-reobf.jar")
+        file("build/libs/$projectName-paperclip-${project.version}-reobf.jar").renameTo(
+            file("build/libs/$projectName-leavesclip-${project.version}-reobf.jar")
         )
     }
 }
