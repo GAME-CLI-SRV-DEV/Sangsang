@@ -46,7 +46,7 @@ Everyone is permitted to copy and distribute verbatim copies of this license doc
 * **[Paper](https://github.com/PaperMC/Paper)**
 * **[Tuinity](https://github.com/Tuinity/Tuinity)**
 * **[Airplane](https://github.com/TECHNOVE/Airplane)**
-* * **[Purpur](https://github.com/pufferfish-host/pufferfish)**
+* **[Pufferfish](https://github.com/pufferfish-gg/pufferfish)**
 * **[Purpur](https://github.com/purpurmc/Purpur)**
 * **[Plazma](https://github.com/plazmamc/Plazmabukkit)**
 * **[Leaves](https://github.com/leavesmc/leaves)**
@@ -64,6 +64,63 @@ The Filename shouldbe ```Radioactive-leavesclip-1.20.6-R0.1-SNAPSHOT-reobf.jar``
 leavesclip은 paperclip의 포크 버전으로, paperclip은 paper의 부트스트랩입니다.
 이 부트스트랩은 server-버전.jar.patch를 생성해 기존 마인크래프트 서버의 DMCA 문제를 해결합니다.
 Mojmap은 server-버전.jar처럼, 기존 Vanilla Mapping을 사용하는 server-버전.jar.patch의 한 종류입니다.
+
+또는:
+
+build.txt를 다운로드하고 확장자를 bat으로 바꿔준 뒤,
+실행해주세요.
+
+Radioactive 저장소가 당신의 로컬 디렉토리에 복제되고 설치프로그램이 실행됩니다.
+```patch``` 명령어를 입력하고 Enter를 누르세요.
+```
+patch - Plazma에 패치를 적용해 API, Server 소스를 다운받습니다.
+build + enter + 1/2 - 서버 실행 JAR을 빌드합니다. (단계 1: Reobf, 단계 2: Mojmap)
+rebuildpatch - 패치를 Rebuild합니다.
+```
+
+Download build.txt, execute.
+
+Radioactive will be cloned to your local directory.
+type patch and press enter.
+type build to build a jar.
+
+
+## 실행/RUN
+이제 JAR를 실행해야 합니다.
+Tool에서 OS.bat을 서버 경로에 이동시키고 JAR 파일을 서버 경로에 복사하세요.
+
+aikar flags로 jar를 실행하거나 Velocity를 사용할 수 있습니다.
+A를 누르면 aikar flags를 사용할 수 있습니다.
+V를 누르면 Velocity 프록시와 함께 사용할 수 있습니다.
+버튼을 누른 후 램을 넣고,
+예비 프롬포트에 옵션 값을 넣고 Enter를 누르세요.
+
+now you have to run jar.
+copy jar and os.bat to server directory and press a or v.
+put ram and put option to boot
+```
+출처: 나무위키, 마인크래프트/서버/자바 에디션 문서
+--help
+사용 가능한 인수를 실행하고 서버를 끈다.
+--bonusChest
+세계 생성 시 보너스 상자를 생성한다.
+--demo
+마인크래프트 체험판 버전으로 실행한다.
+--eraseCache
+싱글에서 세계 최적화 버튼을 누르는 것과 같다.
+--forceUpgrade
+모든 청크를 현재 실행중인 버전으로 강제로 업그레이드 한다.
+nogui
+--nogui
+GUI를 열지 않는다.
+--safeMode
+안전 모드(바닐라 데이터팩)로 진입한다.
+--port <값>
+포트를 지정한다. 기본값은 -1이다.
+-1은 server.properties 파일 내의 server-port의 값을 읽는다.
+```
+
+
 
 # Forks + Main
 | 이름 | API | 지원 로더 | 지원 중단 여부 | 중단 사유 |
