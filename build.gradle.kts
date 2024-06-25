@@ -22,7 +22,7 @@ kotlin.jvmToolchain(jdkVersion)
 
 repositories {
     mavenCentral()
-    maven("https://repo.leavesmc.org/releases") {
+    maven("https://papermc.io/repo/repository/maven-public/") {
         content { onlyForConfigurations(configurations.paperclip.name) }
     }
 }
@@ -30,7 +30,7 @@ repositories {
 dependencies {
     remapper("net.fabricmc:tiny-remapper:0.8.10:fat")
     decompiler("org.vineflower:vineflower:1.10.1")
-    paperclip("org.leavesmc:leavesclip:2.0.0")
+    paperclip("io.papermc:paperclip:3.0.3")
 }
 
 allprojects {
