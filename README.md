@@ -43,7 +43,7 @@ Everyone is permitted to copy and distribute verbatim copies of this license doc
 </div>
 
 ### we use:
-* **[Paper](https://github.com/PaperMC/Paper)**
+* **[Paper](https://github.com/PaperMC/Paper/tree/dev/1.21)**
 * **[Tuinity](https://github.com/Tuinity/Tuinity)**
 * **[Airplane](https://github.com/TECHNOVE/Airplane)**
 * **[Pufferfish](https://github.com/pufferfish-gg/pufferfish)**
