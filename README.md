@@ -20,7 +20,38 @@ PingAPI
 PlaceHolderAPI
 EssentialsX API
 Leaves
-
+```
+최종 패치 문제 발견
+patchnumbers:
+5
+7
+9
+12
+14
+17
+18
+19
+20c
+21
+22
+23
+24-35
+41
+45
+51-53
+57
+60-61
+63
+65
+68
+71
+76
+80
+87
+96
+98c
+99-101
+```
 ```
 0004-0077 패치를 Leaves에서 가져왔습니다.
 Leaves 측 LICENSE
