@@ -48,10 +48,10 @@ index cf13166d1fdd663f1f99fd6d00a5296631276511..32092456559fa1f4b8b827192fdcc8a2
                  LOGGER.info("*************************************************************************************");
 -            }
 +            } else {
-+                               LOGGER.info("Join https://m.cafe.naver.com/ca-fe/fubaofromkorea Now! #SaveFubao #CITESSucks.")
-+                LOGGER.info("#SaveFubao #CITESSucks Sign The Petition Below:")
-+                LOGGER.info("https://docs.google.com/forms/d/1T0DPCowYoSYaPk5hPvpcElN4bQx0KYYxB_7vqdiQMlc/viewform?edit_requested=tr")
-+                LOGGER.info("https://form.naver.com/response/Y2Ew5v7oU_6I3ME2PuZRxg")
++                               LOGGER.info("Join https://m.cafe.naver.com/ca-fe/fubaofromkorea Now! #SaveFubao #CITESSucks.");
++                LOGGER.info("#SaveFubao #CITESSucks Sign The Petition Below:");
++                LOGGER.info("https://docs.google.com/forms/d/1T0DPCowYoSYaPk5hPvpcElN4bQx0KYYxB_7vqdiQMlc/viewform?edit_requested=tr");
++                LOGGER.info("https://form.naver.com/response/Y2Ew5v7oU_6I3ME2PuZRxg");
 +                       }
              // Paper end - Add onboarding message for initial server start
 
