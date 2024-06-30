@@ -56,27 +56,3 @@ index cf13166d1fdd663f1f99fd6d00a5296631276511..32092456559fa1f4b8b827192fdcc8a2
              // Paper end - Add onboarding message for initial server start
 
              // Purpur start
-diff --git a/src/main/java/org/bukkit/craftbukkit/Main.java b/src/main/java/org/bukkit/craftbukkit/Main.java
-index 72f8207a420b42d80b9c471886a953cfef6c81ca..64a50a832000bc224c865e123e117e97435283ff 100644
---- a/src/main/java/org/bukkit/craftbukkit/Main.java
-+++ b/src/main/java/org/bukkit/craftbukkit/Main.java
-@@ -316,7 +316,19 @@ public class Main {
-                     useJline = false; // Paper
-                     System.setProperty(net.minecrell.terminalconsole.TerminalConsoleAppender.JLINE_OVERRIDE_PROPERTY, "false"); // Paper
-                 }
--
-+
-+                               // Radioactive Start
-+                               if options.has("fubao5") {
-+                               System.err.println("*** Message From This Bukkit/Server Software ***");
-+                System.err.println("*** Join https://m.cafe.naver.com/ca-fe/fubaofromkorea Now. ***");
-+                               System.err.println("*** Server will Start in 5 Seconds ***");
-+                               System.err.println("*** 버킷에 띄우는 메시지 ***");
-+                System.err.println("*** 푸조대 카페에 가입해보세요. ***");
-+                               System.err.println("*** 서버가 5초 후 작동합니다 ***");
-+                               Thread.sleep(TimeUnit.SECONDS.toMillis(5));
-+                               }
-+                               // Redioactive End
-+
-                 if (false && Main.class.getPackage().getImplementationVendor() != null && System.getProperty("IReallyKnowWhatIAmDoingISwear") == null) { // Purpur
-                     Date buildDate = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss Z").parse(Main.class.getPackage().getImplementationVendor()); // Paper
