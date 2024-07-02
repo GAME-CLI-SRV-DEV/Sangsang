@@ -1,26 +1,55 @@
 <div align="center">
 
 # Radioactive/라디오액티브/放射性
-
 ### a Super Bukkit That Implements Following Patches:
-Bukkit
-Spigot
-Paper
-Tuinity
-Airplane
-Purpur
-Pufferfish
-Petal
-Plazma
-NogyangSpigot
-JettPack
-ViaVersion
-Geyser-Floodgate(you should put both of that plugin)
-PingAPI
-PlaceHolderAPI
-EssentialsX API
-Leaves
-
+Bukkit Spigot Paper Tuinity Airplane Purpur Pufferfish Petal Plazma NogyangSpigot JettPack ViaVersion Geyser-Floodgate(you should put both of that plugin) PingAPI PlaceHolderAPI EssentialsX API Leaves
+### [플라즈마](https://github.com/PlazmaMC/PlazmaBukkit)를 기반으로 [리브스](https://github.com/LeavesMC/Leaves)를 포크하는 슈퍼 버킷이자 [푸조대](https://m.cafe.naver.com/ca-fe/fubaofromkorea) 지원군 버킷
+### an [Bao119](https://m.cafe.naver.com/ca-fe/fubaofromkorea) Reinforcement Army [Leaves](https://github.com/LeavesMC/Leaves) Fork Based of [Plazma](https://github.com/PlazmaMC/PlazmaBukkit)
+### [Bao119](https://m.cafe.naver.com/ca-fe/fubaofromkorea)增援军[Leaves](https://github.com/LeavesMC/Leaves)基于 [Plazma](https://github.com/PlazmaMC/PlazmaBukkit) 的分叉
+```
+최종 패치 문제 발견
+patchnumbers:
+5
+7
+9
+12
+14
+17
+18
+19
+20c
+21
+22
+23
+24-35
+41
+45
+51-53
+57
+60-61
+63
+65
+68
+71
+76
+80
+87
+96
+98c
+99-101
+102
+104
+106
+108
+110
+113
+114
+120
+125
+127
+129
+132
+```
 ```
 0004-0077 패치를 Leaves에서 가져왔습니다.
 Leaves 측 LICENSE
@@ -50,6 +79,7 @@ Everyone is permitted to copy and distribute verbatim copies of this license doc
 * **[Purpur](https://github.com/purpurmc/Purpur)**
 * **[Plazma](https://github.com/plazmamc/Plazmabukkit)**
 * **[Leaves](https://github.com/leavesmc/leaves)**
+### Failed:
 * **[Icecream](https://github.com/icecreammc/icecream)**
 # COMPILE
 type ```gradlew applypatches``` and ```gradlew createreobfleavesclipjar```
@@ -70,11 +100,11 @@ Mojmap은 server-버전.jar처럼, 기존 Vanilla Mapping을 사용하는 server
 build.txt를 다운로드하고 확장자를 bat으로 바꿔준 뒤,
 실행해주세요.
 
-Radioactive 저장소가 당신의 로컬 디렉토리에 복제되고 설치프로그램이 실행됩니다.
+Radioactive 저장소가 로컬 디렉토리에 복제되고 설치 프로그램이 실행됩니다.
 ```patch``` 명령어를 입력하고 Enter를 누르세요.
 ```
 patch - Plazma에 패치를 적용해 API, Server 소스를 다운받습니다.
-build + enter + 1/2 - 서버 실행 JAR을 빌드합니다. (단계 1: Reobf, 단계 2: Mojmap)
+build + enter + 1/2 - 서버 실행 JAR을 빌드합니다. (단계 1: Reobf, 단계 2: Mojmap) (간혹 radioactive-paperclip이 생성되는 경우도 존재합니다.)
 rebuildpatch - 패치를 Rebuild합니다.
 ```
 
