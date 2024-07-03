@@ -1,0 +1,28 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Outfit8TSB <sunnybunnies09@naver.com>
+Date: Mon, 27 May 2024 13:09:01 +0900
+Subject: [PATCH] Fubao
+
+diff --git a/src/main/java/org/bukkit/craftbukkit/Main.java b/src/main/java/org/bukkit/craftbukkit/Main.java
+f84266bca823be3fe7d26ac59b181424e1e307ef..72f8207a420b42d80b9c471886a953cfef6c81ca
+--- a/src/main/java/org/bukkit/craftbukkit/Main.java
++++ b/src/main/java/org/bukkit/craftbukkit/Main.java
+@@ -143,7 +143,7 @@ public class Main {
+
+                 this.acceptsAll(Main.asList("noconsole"), "Disables the console");
+
+-                this.acceptsAll(Main.asList("v", "version"), "Show the " + io.papermc.paper.ServerBuildInfo.buildInfo().brandName() + " Version"); // Plazma - Fork-friendly Rebranding
++                //this.acceptsAll(Main.asList("v", "version"), "v command is dead."); // Plazma - Fork-friendly Rebranding
+
+                 this.acceptsAll(Main.asList("demo"), "Demo mode");
+
+@@ -194,7 +194,7 @@ public class Main {
+                 acceptsAll(asList("server-name"), "Name of the server")
+                         .withRequiredArg()
+                         .ofType(String.class)
+-                        .defaultsTo("A " + io.papermc.paper.ServerBuildInfo.buildInfo().brandName() + " Server") // Plazma - Fork-friendly Rebranding
++                        .defaultsTo("Fu bao Server") // Fubao Server
+                         .describedAs("Name");
+                 // Paper end
+
+

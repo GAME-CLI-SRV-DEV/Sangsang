@@ -240,6 +240,25 @@ tasks {
         }
     }
 }
+tasks.register("createMojmapLeavesclipJar") {
+    group = "paperweight"
+    dependsOn("createMojmapPaperclipJar")
+    doLast {
+        file("build/libs/$projectName-paperclip-${project.version}-mojmap.jar").renameTo(
+            file("build/libs/$projectName-leavesclip-${project.version}-mojmap.jar")
+        )
+    }
+}
+
+tasks.register("createReobfLeavesclipJar") {
+    group = "paperweight"
+    dependsOn("createReobfPaperclipJar")
+    doLast {
+        file("build/libs/$projectName-paperclip-${project.version}-reobf.jar").renameTo(
+            file("build/libs/$projectName-leavesclip-${project.version}-reobf.jar")
+        )
+    }
+}
 
 publishing {
     publications.create<MavenPublication>("devBundle") {
