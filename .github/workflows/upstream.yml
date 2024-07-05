@@ -1,5 +1,11 @@
-name: Always Up To Date
-on: workflow_dispatch
+name: Up To Date for minute
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/1 * * * *"
+
 jobs:
   upstream:
     name: Update Upstream
@@ -29,16 +35,22 @@ jobs:
         if: steps.check.outputs.needs == 'true'
         run: ./gradlew updateUpstream
       
-      - name: Rebuild Patches
+      - name: Rebuild Patches(패치 재설정)
         if: steps.check.outputs.paper == 'false' || steps.check.outputs.purpur == 'false'
-        run: | 
-          cd ${{ env.MAIN }}
-          ./gradlew --no-rebuild --stacktrace rebuildPatches
+        run: ./gradlew --no-rebuild --stacktrace rebuildPatches
           
-      - name: Apply patches
+      - name: Apply patches(1차 패치 적용)
         if: steps.check.outputs.needs == 'true'
         run: ./gradlew applyPatches
+        
+      - name: Rebuild Patches(패치 재설정)
+        if: steps.check.outputs == false
+        run: ./gradlew --no-rebuild --stacktrace rebuildPatches
 
+      - name: Apply patches again(2차 패치 적용)
+        if: steps.check.outputs.needs == 'true'
+        run: ./gradlew applyPatches
+        
       - name: Check build
         if: steps.check.outputs.needs == 'true'
         run: ./gradlew build
