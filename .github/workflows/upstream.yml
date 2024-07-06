@@ -44,7 +44,7 @@ jobs:
         run: ./gradlew applyPatches
         
       - name: Rebuild Patches(패치 재설정)
-        if: steps.check.outputs == false
+        if: steps.check.outputs.needs == 'false'
         run: ./gradlew --no-rebuild --stacktrace rebuildPatches
 
       - name: Apply patches again(2차 패치 적용)
