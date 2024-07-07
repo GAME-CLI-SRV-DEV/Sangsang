@@ -1,0 +1,6 @@
+jdk:
+  - openjdk21
+before_install:
+  - git config jitpacksys@paperpatch.jitpack.io
+  - ./gradlew applypatches
+  - ./gradlew createreobfpaperclipjar
