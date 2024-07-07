@@ -1,0 +1,37 @@
+name: Up To Date for minute 2
+
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/1 * * * *"
+
+jobs:
+  upstream:
+    name: Update Upstream
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate Gradle Wrapper
+        uses: gradle/wrapper-validation-action@v1
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: 21
+
+      - name: Determine if update is required
+        id: check
+        run: echo "needs=$(./gradlew -q checkNeedsUpdate)" >> $GITHUB_OUTPUT
+
+      - name: Configure Git
+        if: steps.check.outputs.needs == 'true'
+        run: git config --global user.email "action@github.com" && git config --global user.name "Github Action"
+
+      - name: Update upstream
+        if: steps.check.outputs.needs == 'true'
+        run: ./gradlew updateUpstream
+      
