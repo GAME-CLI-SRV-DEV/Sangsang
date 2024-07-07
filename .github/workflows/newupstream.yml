@@ -35,3 +35,6 @@ jobs:
         if: steps.check.outputs.needs == 'true'
         run: ./gradlew updateUpstream
       
+      - name: Commit changes
+        if: steps.check.outputs.needs == 'true'
+        run: git add . && printf "Updated Upstream (Plazma)\n\nUpstream has released updates that appear to apply and compile correctly\n\n$(cat compare.txt)" | git commit -F -
