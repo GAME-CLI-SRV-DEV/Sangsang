@@ -1,8 +1,26 @@
 <div align="center">
 
 # Radioactive/라디오액티브/放射性
+Radioactive가 비공식적으로 업데이트를 했습니다, 사실 Plazma 1.21이 나오면 공식 업데이트를 진행 예정 이었는데 업스트림 실패가 계속되가지고
+Leaves를 사용해 이렇게 1.21로 패치해서 올립니다. 공식으로 Plazma가 업데이트 될 때까지 Plazma 클래스가 일부 작동하지 않는 점 양해바랍니다.
+
+이번 버전에는 다음과 같은 시스템이 추가됩니다: 
+1.21 강제 업데이트: 일부 클래스(특히 Plazma)가 update가 아직 안 된 상태에서 업데이트 했습니다. 일부 플러그인이 작동하지 않을 수 있습니다!
+
+리브스 추가: Leaves의 모든 기능이 지원됩니다
+
+폴리아 추가: Folia의 모든 기능이 지원됩니다
+
+[EssentialsX는 현재 Folia를 지원하지 않으며 현재 folia 플러그인 지원 시스템이 없는 Bukkit 플러그인을 대비해 folia-supported=true가 nullable로 바뀔 예정입니다.]
+
+루미나 추가: Lumina의 모든 기능이 지원됩니다
+
+게일 추가: Gale의 모든 기능이 지원됩니다
+
+리프 추가: Leaf의 모든 기능이 지원됩니다
+
 ### a Super Bukkit That Implements Following Patches:
-Bukkit Spigot Paper Tuinity Airplane Purpur Pufferfish Petal Plazma NogyangSpigot JettPack ViaVersion Geyser-Floodgate(you should put both of that plugin) PingAPI PlaceHolderAPI EssentialsX API Leaves
+Bukkit Spigot Paper Tuinity Airplane Purpur Pufferfish Petal Plazma NogyangSpigot JettPack ViaVersion Geyser-Floodgate(you should put both of that plugin) PingAPI PlaceHolderAPI EssentialsX API Leaves Folia Icecream Lumina Leaf Gale Radioactive
 ### [플라즈마](https://github.com/PlazmaMC/PlazmaBukkit)를 기반으로 [리브스](https://github.com/LeavesMC/Leaves)를 포크하는 슈퍼 버킷이자 [푸조대](https://m.cafe.naver.com/ca-fe/fubaofromkorea) 지원군 버킷
 ### an [Bao119](https://m.cafe.naver.com/ca-fe/fubaofromkorea) Reinforcement Army [Leaves](https://github.com/LeavesMC/Leaves) Fork Based of [Plazma](https://github.com/PlazmaMC/PlazmaBukkit)
 ### [Bao119](https://m.cafe.naver.com/ca-fe/fubaofromkorea)增援军[Leaves](https://github.com/LeavesMC/Leaves)基于 [Plazma](https://github.com/PlazmaMC/PlazmaBukkit) 的分叉
