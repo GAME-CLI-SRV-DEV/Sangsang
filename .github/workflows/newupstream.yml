@@ -3,8 +3,6 @@ name: Up To Date for minute 2
 on:
   push:
   workflow_dispatch:
-  schedule:
-    - cron: "*/1 * * * *"
 
 jobs:
   upstream:
