@@ -1,6 +1,6 @@
 <div align="center">
 
-# Radioactive/라디오액티브/放射性
+# Radioactive/라디오액티브/放射性(네오퍼/NeoPur)
 Radioactive가 비공식적으로 업데이트를 했습니다, 사실 Plazma 1.21이 나오면 공식 업데이트를 진행 예정 이었는데 업스트림 실패가 계속되가지고
 Leaves를 사용해 이렇게 1.21로 패치해서 올립니다. 공식으로 Plazma가 업데이트 될 때까지 Plazma 클래스가 일부 작동하지 않는 점 양해바랍니다.
 
