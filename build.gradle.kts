@@ -127,7 +127,7 @@ paperweight {
     }
 }
 
-val github = "https://api.github.com/repos/GAME-CLI-SRV-DEV/PlazmaBukkit-Provisional"
+val github = "https://api.github.com/repos/PlazmaMC/PlazmaBukkit"
 
 tasks {
     applyPatches {
