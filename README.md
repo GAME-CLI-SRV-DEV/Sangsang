@@ -19,6 +19,79 @@ Radioactive가 비공식적으로 업데이트를 했습니다, 사실 Plazma 1.
 
 리프 추가: Leaf의 모든 기능이 지원됩니다
 
+```
+anthem:
+Was ist das Große Vaterland?
+Ist es Bukkit, ist es Sponge?
+Ist es dort, wo die Plugins auf dem Rainbow blühen?
+Ist es dort, wo sich das Leuchten auf dem Stein bewegt?
+Oh nein! Nein! Nein!
+Dieses Vaterland muss größer sein!
+
+Was ist das Große Vaterland?
+Ist es SpigotMC, ist es Paper?
+Ist es dort, wo die Mods von Fabric umherstreifen?
+Ist es dort, wo die Kugelfische von Mark Purpur formen?
+Oh nein! Nein! Nein!
+Dieses Vaterland muss größer sein!
+
+Was ist das Große Vaterland?
+Ist es Plazma, ist es Leaves?
+Ist es dort, wo die Mods von Neoforge blasen?
+Ist es dort, wo die Forge entlangrast?
+Oh nein! Nein! Nein!
+Dieses Vaterland muss größer sein!
+
+Was ist das Große Vaterland?
+Ist es Nukkit, ist es Pocketmine?
+Ist es dort, wo die Erweiterungen von Minestom blasen?
+Ist es dort, wo die Folia entlangrast?
+Oh nein! Nein! Nein!
+dieses Vaterland muss größer sein!
+
+Was ist das Große Vaterland?
+Nenn mir also das große Land!
+Ist es das Land des Wesentlichen, ist es Nukleus?
+Das Land und die Menschen, die mir wohlgefällig sind!
+Aber nein! Nein! Nein!
+Dieses Vaterland muss größer sein!
+
+Was ist das Große Vaterland?
+Nenn mir also das große Land!
+Sicherlich muss es Geysir sein,
+Reich an Siegen und Ehren?
+Oh nein! Nein! Nein!
+Dieses Vaterland muss größer sein!
+
+Was ist das Große Vaterland?
+Nenn mir also endlich das große Land!
+
+Soweit es das Plugin und den Mod regnen lässt
+Und Lieder für Fu Bao im Himmel singt:
+Das soll es sein, soll es sein!
+Das, tapfere Fans, nennt das euer!
+
+Das ist das Große Vaterland,
+Wo mit gewölbter Hand Eide geschworen werden,
+Wo Treue hell aus den Augen flammt,
+Und Liebe warm im Herzen sitzt.
+Das soll es sein,
+Das, tapferer Deutscher, soll es sein!
+
+Das ist das Große Vaterland,
+Wo Wut den fremden Plunder wegfegt,
+Wo jeder CITES Feind heißt,
+Wo jeder Grandies Freund heißt.
+Das soll es sein,
+Ganz Grandium soll es sein.
+
+Ganz Grandium soll es sein,
+O Gott vom Himmel, sieh hinein,
+Und gib uns echten deutschen Mut,
+Damit wir es treu und gut lieben.
+Das soll es sein,
+Ganz Grandium soll es sein.
+```
 ### a Super Bukkit That Implements Following Patches:
 Bukkit Spigot Paper Tuinity Airplane Purpur Pufferfish Petal Plazma NogyangSpigot JettPack ViaVersion Geyser-Floodgate(you should put both of that plugin) PingAPI PlaceHolderAPI EssentialsX API Leaves Folia Icecream Lumina Leaf Gale Radioactive
 ### [플라즈마](https://github.com/PlazmaMC/PlazmaBukkit)를 기반으로 [리브스](https://github.com/LeavesMC/Leaves)를 포크하는 슈퍼 버킷이자 [푸조대](https://m.cafe.naver.com/ca-fe/fubaofromkorea) 지원군 버킷
