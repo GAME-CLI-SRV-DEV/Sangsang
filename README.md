@@ -2,7 +2,7 @@
 
 # Radioactive/라디오액티브/放射性(네오퍼/NeoPur)
 Radioactive가 비공식적으로 업데이트를 했습니다, 사실 Plazma 1.21이 나오면 공식 업데이트를 진행 예정 이었는데 업스트림 실패가 계속되가지고
-Leaves를 사용해 이렇게 1.21로 패치해서 올립니다. 공식으로 Plazma가 업데이트 될 때까지 Plazma 클래스가 일부 작동하지 않는 점 양해바랍니다.
+임시 저장소를 사용해 이렇게 1.21로 패치해서 올립니다. 현재 Purpur 개발자들이 더 무례해지고 있어서 Neopur라는 새로운 별칭이 생겼습니다.
 
 이번 버전에는 다음과 같은 시스템이 추가됩니다: 
 1.21 강제 업데이트: 일부 클래스(특히 Plazma)가 update가 아직 안 된 상태에서 업데이트 했습니다. 일부 플러그인이 작동하지 않을 수 있습니다!
@@ -88,6 +88,27 @@ Everyone is permitted to copy and distribute verbatim copies of this license doc
 [![Watchers](https://img.shields.io/github/watchers/PlazmaMC/Volt?label=watchers&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9bxSIVh1YQcYhQnSyIiuimVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APE0clJ0UVK/F9SaBHjwXE/3t173L0D/PUyU82OMUDVLCOViAuZ7KrQ9YogwujDEGYkZupzopiE5/i6h4+vdzGe5X3uz9Gj5EwG+ATiWaYbFvEG8dSmpXPeJ46woqQQnxOPGnRB4keuyy6/cS447OeZESOdmieOEAuFNpbbmBUNlXiSOKqoGuX7My4rnLc4q+Uqa96TvzCU01aWuU5zEAksYgkiBMioooQyLMRo1UgxkaL9uId/wPGL5JLJVQIjxwIqUCE5fvA/+N2tmZ8Yd5NCcaDzxbY/hoGuXaBRs+3vY9tunACBZ+BKa/krdWD6k/RaS4seAb3bwMV1S5P3gMsdoP9JlwzJkQI0/fk88H5G35QFwrdA95rbW3Mfpw9AmrpK3gAHh8BIgbLXPd4dbO/t3zPN/n4Ax9dyyerighsAAAAGYktHRAAAAAAAAPlDu38AAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfmCBMVNw4TRw0nAAAA3UlEQVQ4y83SP04CURAG8I0lewHOwAFUaiwkdmAlp8CL4FHopfIvtOIJWE3opIBK489mQPKy6xYWOskkL9/MN/PNzMuyf2fIcYkZVuGzwPI68gle8Yl7jMIfAntBp4o8wAeecFgSP8I8cgZp8DwC12j8oLCBCd7R34ItbHCzT8ZZSC7QTYrcYo1WhjGWaCbdCt+2SGLN4IwPfnu07QjrkhG6oWKB0+TMd7sRAuzHYuqWmO8tsVd1xjmOS8htPEfORVWHTmweHnEVPg2sqPxIicxhFFjhLd7D2q/8J/YFHSJt9VSqQ08AAAAASUVORK5CYII=&style=flat-square&color=green)](https://github.com/PlazmaMC/Volt/watchers)
 
 </div>
+
+> [!IMPORTANT]
+> 
+> Plazma, Pufferfish, Purpur를 업데이트하는 임시 저장소가 생겼습니다.
+> 파일은 배포하지 않고 업스트림 업데이트만 할 것입니다.
+> 
+> 
+
+> [!IMPORTANT]
+>
+> 현재 PlazmaXLeaves 프로젝트가 지연되고 있습니다.
+> 곧 Leaves를 추가해 Rebuild할 것이니 양해 부탁합니다.
+> 우리는 푸바오의 생일 자정을 기해
+> 1.21 파일을 배포할 것을 선언합니다.
+> 
+
+> [!CAUTION]
+>
+> Radioactive 1.21은 Folia를 사용하여 불안정합니다.
+> 일부 플러그인의 작동에 영향이 갈 수 있습니다. 
+>
 
 ### we use:
 * **[Paper](https://github.com/PaperMC/Paper/tree/dev/1.21)**
