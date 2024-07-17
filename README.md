@@ -5,7 +5,7 @@
 
 리브스 추가: Leaves의 모든 기능이 지원됩니다
 
-폴리아 추가: Folia의 모든 기능이 지원됩니다
+폴리아 추가: Folia의 모든 기능이 지원됩니다 V
 
 [EssentialsX는 현재 Folia를 지원하지 않으며 현재 folia 플러그인 지원 시스템이 없는 Bukkit 플러그인을 대비해 folia-supported=true가 nullable로 바뀔 예정입니다.]
 
