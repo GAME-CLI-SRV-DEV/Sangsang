@@ -1,7 +1,6 @@
 name: Up To Date for minute
 
 on:
-  push:
   workflow_dispatch:
 
 jobs:
