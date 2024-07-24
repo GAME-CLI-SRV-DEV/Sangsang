@@ -1,0 +1,59 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Outfit8TSB <sunnybunnies09@naver.com>
+Date: Sat, 20 Jul 2024 23:06:13 +0900
+Subject: [PATCH] Display Bao119 Petition and cafe Link after Done Type Help
+ For Help
+
+This Patch was created to Boycott CITES. This Patch Agreed to License "Bao119-Anti-CITES License Agreement"
+
+diff --git a/src/main/java/net/minecraft/server/Main.java b/src/main/java/net/minecraft/server/Main.java
+index ab5607df7819bdc25d4856007122a6dce89857a9..1321c70b1fd2567bcab57d344cf004d521ea26e7 100644
+--- a/src/main/java/net/minecraft/server/Main.java
++++ b/src/main/java/net/minecraft/server/Main.java
+@@ -112,6 +112,28 @@ public class Main {
+             if (io.papermc.paper.ServerBrandConstants.ASCII_LOGO != null)
+                 System.out.println(io.papermc.paper.ServerBrandConstants.ASCII_LOGO);
+             // Plazma end - Fork-friendly Rebranding
++                       // Radioactive Start - Save Fubao!
++                   LOGGER.error("**********************************************");
++            LOGGER.error("(!) #PlazmaXLeaves 및 #Radioactive의 모든 게이머와 지지자에게:");
++            LOGGER.error("우리는 사랑하는 아기판다 푸바오에 대한 학대에 맞서고 있습니다. 푸바오는 열악한 환경에서 생활하고 있어 몸 전체에 상처가 있는 것으로 나타났습니다.");
++            LOGGER.error("이것은 용납될 수 없습니다!");
++            LOGGER.error("우리는 국제자연보전연맹(IUCN)에 이 사실을 고발하려는 청원에 동참하기로 결정을 내렸습니다. 우리는 워싱턴 조약(CITES)을 이 사태의 원인으로");
++            LOGGER.error("지목하고 있습니다.");
++            LOGGER.error("");
++            LOGGER.error("푸바오를 위하여 우리의 목소리를 울리게 만듭시다! 우리는 할 수 있습니다! #SupportFuBao #SaveFuBao #BringFuBaoBackToKorea #KoreaChinaFriendsForeverWithFuBao");
++            LOGGER.error("#supportfubao #savefubao #citessux #CITESSucks #bringfubaobacktokorea #koreachinafriendsforeverwithfubao  #PlazmaXLeaves #FuBao #푸바오 #福宝 #플라즈마X리브스 #푸바오와함께");
++            LOGGER.error("ENGLISH:");
++            LOGGER.error("(!) Attention all gamers and supporters of #PlazmaXLeaves and #Radioactive! We are taking a stand against the mistreatment of our beloved panda, Fu Bao. Recent reports have shown that Fu Bao is living in poor conditions, resulting in scars all");
++            LOGGER.error("over her body. This is unacceptable!");
++            LOGGER.error("");
++            LOGGER.error("We are joining the petition to report China's panda abuse to the International Union for Conservation of Nature (IUCN). We believe that the Convention on International Trade in Endangered Species (CITES) should be held accountable for allowing");
++            LOGGER.error("Fu Bao to live in such an environment.");
++            LOGGER.error("");
++            LOGGER.error("Join us in our protest for Fu Bao. Let's risk getting Radioactive into the list of shame to make our voices heard. Together, we can make a difference. #SupportFuBao #SaveFuBao #BringFuBaoBackToKorea #KoreaChinaFriendsForeverWithFuBao");
++            LOGGER.error("#supportfubao #savefubao #citessux #CITESSucks #bringfubaobacktokorea #koreachinafriendsforeverwithfubao  #PlazmaXLeaves #FuBao #푸바오 #福宝 #플라즈마X리브스 #푸바오와함께");
++            LOGGER.error("");
++            LOGGER.error("*******************************************************");
++                       // Radioactive End - Save Fubao!
+             // Plazma start - Warn on startup
+             if (!org.plazmamc.plazma.Options.NO_WARN) {
+                 LOGGER.warn("Warning! " + io.papermc.paper.ServerBuildInfo.buildInfo().brandName() + " may cause unexpected problems, so be sure to test it thoroughly before using it on a public server.");
+diff --git a/src/main/java/net/minecraft/server/MinecraftServer.java b/src/main/java/net/minecraft/server/MinecraftServer.java
+index cf13166d1fdd663f1f99fd6d00a5296631276511..06b6046687c139caf38bb3c23f2ca5b9fb6251fb 100644
+--- a/src/main/java/net/minecraft/server/MinecraftServer.java
++++ b/src/main/java/net/minecraft/server/MinecraftServer.java
+@@ -1189,7 +1189,12 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+                 LOGGER.info("It's recommended you read our 'Getting Started' documentation for guidance.");
+                 LOGGER.info("View this and more helpful information here: {}", io.papermc.paper.ServerBrandConstants.START_GUIDE); // Plazma - Fork-friendly Rebranding
+                 LOGGER.info("*************************************************************************************");
+-            }
++            } else {
++                               LOGGER.info("Join https://m.cafe.naver.com/ca-fe/fubaofromkorea Now! #SaveFubao #CITESSucks.");
++                LOGGER.info("#SaveFubao #CITESSucks Sign The Petition Below:");
++                LOGGER.info("https://docs.google.com/forms/d/1T0DPCowYoSYaPk5hPvpcElN4bQx0KYYxB_7vqdiQMlc/viewform?edit_requested=tr");
++                LOGGER.info("https://form.naver.com/response/Y2Ew5v7oU_6I3ME2PuZRxg");
++                       }
+             // Paper end - Add onboarding message for initial server start
+ 
+             // Purpur start
