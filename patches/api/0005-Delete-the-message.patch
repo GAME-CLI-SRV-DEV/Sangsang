@@ -1,0 +1,47 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Outfit7TSB <sunnybunnies09@naver.com>
+Date: Mon, 29 Jul 2024 22:41:43 +0900
+Subject: [PATCH] Delete the message.
+
+
+diff --git a/src/main/java/org/bukkit/plugin/java/PluginClassLoader.java b/src/main/java/org/bukkit/plugin/java/PluginClassLoader.java
+index cb656a113d2a73dca7185711125e6bc8eb0e9089..ce1fb0868ac56f701680ba82cc79a51a7b0e8aef 100644
+--- a/src/main/java/org/bukkit/plugin/java/PluginClassLoader.java
++++ b/src/main/java/org/bukkit/plugin/java/PluginClassLoader.java
+@@ -205,21 +205,21 @@ public final class PluginClassLoader extends URLClassLoader implements io.paperm
+         if (name.startsWith("org.bukkit.") || name.startsWith("net.minecraft.") || name.startsWith("org.cites")) { // Radioactive - Block CITES Educational Plugin running on Radioactive
+             throw new ClassNotFoundException(name);
+             // System.err.println("We are sorry, The Class Not Found Error Occurred while Loading Classes of the Plugin. (한국어: 죄송합니다. 플러그인 클래스를 로딩하는 중 클래스 누락 문제가 발생하였습니다.)"); // whoops
+-            System.err.println("Why is That? (NMS)");
+-            System.err.println("Bukkit Does not allow declaring NMS. you can only import when you need to access here.");
+-            System.err.println("If You want to declare NMS, Use Glowstone Instead.");
+-            System.err.println("Why is That? (org.cites)");
+-            System.err.println("Radioactive Cannot Tolerate Declaring Convention Of International Trade of Endangered Species(CITES) Domain Related Class, also Known as Washington International Trade Convention Related Class.");
+-            System.err.println("If You want to declare org.CITES class, Please Refrain From thinking about doing that. CITES is Responsible for making Fu Bao Living in Bad Environment and it's the Order to not Use org.cites Class.");
+-            System.err.println("Instead, Join Our Protest for Fubao. org.game.fubaoforever is a public domain class, Please Use That class prefix. See the Protest Information Message, displayed as ERROR Level, before the server startup for More Information. ");
+-            System.err.println("한국어:");
+-            System.err.println("왜 오류가 발생했나요? (NMS)");
+-            System.err.println("Bukkit API는 NMS를 Declare하는 것을 허용하지 않으며, 이 클래스에 접속을 위한 import만 가능합니다.");
+-            System.err.println("NMS를 Declare하려면 Glowstone 사용을 고려해보세요.");
+-            System.err.println("왜 오류가 발생했나요? (org.cites)");
+-            System.err.println("라디오액티브는 멸종위기야생동식물국제무역관련협약, 즉 CITES의 도메인(cites.org) 관련 클래스인 org.cites를 Declare하는 것을 용납할 수 없습니다.");
+-            System.err.println("org.CITES 클래스를 사용하려고 하셨다면, 할 생각은 하지 않는 게 좋습니다. CITES는 푸바오가 열악한 환경에서 살면서 접객을 당해 탈모가 온 것에 대한 책임이 있습니다.");
+-            System.err.println("대신, 푸바오를 위한 시위에 동참해 주십시오. org.game.fubaoforever는 공개로 사용되는 클래스이므로, 이 클래스를 사용하세요. 서버 시작 전 표시되는 로그를 확인하세요.");
++            // System.err.println("Why is That? (NMS)");
++            // System.err.println("Bukkit Does not allow declaring NMS. you can only import when you need to access here.");
++            // System.err.println("If You want to declare NMS, Use Glowstone Instead.");
++            // System.err.println("Why is That? (org.cites)");
++            // System.err.println("Radioactive Cannot Tolerate Declaring Convention Of International Trade of Endangered Species(CITES) Domain Related Class, also Known as Washington International Trade Convention Related Class.");
++            // System.err.println("If You want to declare org.CITES class, Please Refrain From thinking about doing that. CITES is Responsible for making Fu Bao Living in Bad Environment and it's the Order to not Use org.cites Class.");
++            // System.err.println("Instead, Join Our Protest for Fubao. org.game.fubaoforever is a public domain class, Please Use That class prefix. See the Protest Information Message, displayed as ERROR Level, before the server startup for More Information. ");
++            // System.err.println("한국어:");
++            // System.err.println("왜 오류가 발생했나요? (NMS)");
++            // System.err.println("Bukkit API는 NMS를 Declare하는 것을 허용하지 않으며, 이 클래스에 접속을 위한 import만 가능합니다.");
++            // System.err.println("NMS를 Declare하려면 Glowstone 사용을 고려해보세요.");
++            // System.err.println("왜 오류가 발생했나요? (org.cites)");
++            // System.err.println("라디오액티브는 멸종위기야생동식물국제무역관련협약, 즉 CITES의 도메인(cites.org) 관련 클래스인 org.cites를 Declare하는 것을 용납할 수 없습니다.");
++            // System.err.println("org.CITES 클래스를 사용하려고 하셨다면, 할 생각은 하지 않는 게 좋습니다. CITES는 푸바오가 열악한 환경에서 살면서 접객을 당해 탈모가 온 것에 대한 책임이 있습니다.");
++            // System.err.println("대신, 푸바오를 위한 시위에 동참해 주십시오. org.game.fubaoforever는 공개로 사용되는 클래스이므로, 이 클래스를 사용하세요. 서버 시작 전 표시되는 로그를 확인하세요.");
+         }
+         Class<?> result = classes.get(name);
+ 
