@@ -1,0 +1,26 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Outfit7TSB <sunnybunnies09@naver.com>
+Date: Mon, 29 Jul 2024 22:33:54 +0900
+Subject: [PATCH] whoops
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+/home/runner/work/Radioactive/Radioactive/RadioActive-API/src/main/java/org/bukkit/plugin/java/PluginClassLoader.java:207: error: unreachable statement
+> Task :radioactive-api:compileJava
+            System.err.println("We are sorry, The Class Not Found Error Occurred while Loading Classes of the Plugin. (한국어: 죄송합니다. 플러그인 클래스를 로딩하는 중 클래스 누락 문제가 발생하였습니다.)");
+            ^
+
+diff --git a/src/main/java/org/bukkit/plugin/java/PluginClassLoader.java b/src/main/java/org/bukkit/plugin/java/PluginClassLoader.java
+index 07d1183c38a4e7236e26fe87b272a2d0ebbe11b9..cb656a113d2a73dca7185711125e6bc8eb0e9089 100644
+--- a/src/main/java/org/bukkit/plugin/java/PluginClassLoader.java
++++ b/src/main/java/org/bukkit/plugin/java/PluginClassLoader.java
+@@ -204,7 +204,7 @@ public final class PluginClassLoader extends URLClassLoader implements io.paperm
+     protected Class<?> findClass(String name) throws ClassNotFoundException {
+         if (name.startsWith("org.bukkit.") || name.startsWith("net.minecraft.") || name.startsWith("org.cites")) { // Radioactive - Block CITES Educational Plugin running on Radioactive
+             throw new ClassNotFoundException(name);
+-            System.err.println("We are sorry, The Class Not Found Error Occurred while Loading Classes of the Plugin. (한국어: 죄송합니다. 플러그인 클래스를 로딩하는 중 클래스 누락 문제가 발생하였습니다.)");
++            // System.err.println("We are sorry, The Class Not Found Error Occurred while Loading Classes of the Plugin. (한국어: 죄송합니다. 플러그인 클래스를 로딩하는 중 클래스 누락 문제가 발생하였습니다.)"); // whoops
+             System.err.println("Why is That? (NMS)");
+             System.err.println("Bukkit Does not allow declaring NMS. you can only import when you need to access here.");
+             System.err.println("If You want to declare NMS, Use Glowstone Instead.");
