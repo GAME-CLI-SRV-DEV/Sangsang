@@ -4,6 +4,6 @@
 echo off
 cls
 echo preparing Install Program
-git clone https://github.com/GAME-CLI-SRV-DEV/Radioactive.git
+git clone https://github.com/GAME-CLI-SRV-DEV/Sangsang.git
 cd radioactive
 install.bat
