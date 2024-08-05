@@ -1,7 +1,9 @@
 <div align="center">
 
-# Radioactive/라디오액티브/放射性
+# Radioactive/라디오액티브/放射性 -> Sangsang/상상/想象
 
+> 공식 출시명이 "상상"으로 결정났습니다!
+> 1.20.6 Folia 업데이트 부터는 상상(SangSang-Leavesclip-1.20.6-R0.1-SNAPSHOT-reobf.jar)으로 업데이트됩니다!
 ### a Super Bukkit That Implements Following Patches:
 Bukkit Spigot Paper Tuinity Airplane Purpur Pufferfish Petal Plazma NogyangSpigot JettPack ViaVersion Geyser-Floodgate(you should put both of that plugin) PingAPI PlaceHolderAPI EssentialsX API Leaves
 ### [플라즈마](https://github.com/PlazmaMC/PlazmaBukkit)를 기반으로 [리브스](https://github.com/LeavesMC/Leaves)를 포크하는 슈퍼 버킷이자 [푸조대](https://m.cafe.naver.com/ca-fe/fubaofromkorea) 지원군 버킷
