@@ -91,7 +91,8 @@ Everyone is permitted to copy and distribute verbatim copies of this license doc
 * **[Leaves](https://github.com/leavesmc/leaves)**
 * **[Icecream](https://github.com/icecreammc/icecream)**
 * **[Folia](https://github.com/PaperMC/Folia)**
-* **[Kaiiju](https://github.com/KaiijuMC/Kaiiju)**
+* **[Kaiiju](https://github.com/KaiijuMC/Kaiiju)**\
+* **[KeYi](https://github.com/XiaoZhangUp/KeYi)**
 * **[SparklySangsang(스파클리페이퍼 + 상상)](https://github.com/GAME-CLI-SRV-DEV/SparklySangsang)**
 
 # COMPILE
