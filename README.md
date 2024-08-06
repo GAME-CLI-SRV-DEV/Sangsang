@@ -1,14 +1,13 @@
 <div align="center">
 
-# Radioactive/라디오액티브/放射性 -> Sangsang/상상/想象
+Sangsang/상상/想象
 
 > 공식 출시명이 "상상"으로 결정났습니다!
 > 1.20.6 Folia 업데이트 부터는 상상(SangSang-Leavesclip-1.20.6-R0.1-SNAPSHOT-reobf.jar)으로 업데이트됩니다!
 ### a Super Bukkit That Implements Following Patches:
 Bukkit Spigot Paper Tuinity Airplane Purpur Pufferfish Petal Plazma NogyangSpigot JettPack ViaVersion Geyser-Floodgate(you should put both of that plugin) PingAPI PlaceHolderAPI EssentialsX API Leaves
-### [플라즈마](https://github.com/PlazmaMC/PlazmaBukkit)를 기반으로 [리브스](https://github.com/LeavesMC/Leaves)를 포크하는 슈퍼 버킷이자 [푸조대](https://m.cafe.naver.com/ca-fe/fubaofromkorea) 지원군 버킷
-### an [Bao119](https://m.cafe.naver.com/ca-fe/fubaofromkorea) Reinforcement Army [Leaves](https://github.com/LeavesMC/Leaves) Fork Based of [Plazma](https://github.com/PlazmaMC/PlazmaBukkit)
-### [Bao119](https://m.cafe.naver.com/ca-fe/fubaofromkorea)增援军[Leaves](https://github.com/LeavesMC/Leaves)基于 [Plazma](https://github.com/PlazmaMC/PlazmaBukkit) 的分叉
+### [플라즈마](https://github.com/PlazmaMC/PlazmaBukkit)를 기반으로 [리브스](https://github.com/LeavesMC/Leaves)를 포크하다.
+
 ```
 최종 패치 문제 발견
 patchnumbers:
@@ -80,16 +79,21 @@ Everyone is permitted to copy and distribute verbatim copies of this license doc
 > 시험 빌드 이후 플라즈마 첫 빌드가 나올 시점에 업데이트가 진행됩니다.
 > 이떄는 시험적이므로 주의하십시오.
 
-### we use:
+### 사용하는 버킷:
 * **[Paper](https://github.com/PaperMC/Paper)**
 * **[Tuinity](https://github.com/Tuinity/Tuinity)**
 * **[Airplane](https://github.com/TECHNOVE/Airplane)**
 * **[Pufferfish](https://github.com/pufferfish-gg/pufferfish)**
 * **[Purpur](https://github.com/purpurmc/Purpur)**
 * **[Plazma](https://github.com/plazmamc/Plazmabukkit)**
+
+### 기능 통합 진행 중:
 * **[Leaves](https://github.com/leavesmc/leaves)**
-### Failed:
 * **[Icecream](https://github.com/icecreammc/icecream)**
+* **[Folia](https://github.com/PaperMC/Folia)**
+* **[Kaiiju](https://github.com/KaiijuMC/Kaiiju)**
+* **[SparklySangsang(스파클리페이퍼 + 상상)](https://github.com/GAME-CLI-SRV-DEV/SparklySangsang)**
+
 # COMPILE
 type ```gradlew applypatches``` and ```gradlew createreobfleavesclipjar```
 
