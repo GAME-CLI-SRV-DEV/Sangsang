@@ -51,12 +51,12 @@ jobs:
         run: ./gradlew applyPatches --stacktrace
 
       - name: Build
-        run: ./gradlew build -x sangsang-api:test -x sangsang-server:test --stacktrace
+        run: ./gradlew build 
 
       - name: Create Reobf Jar
-        run: ./gradlew createReobfLeavesclipJar -x sangsang-api:test -x sangsang-server:test --stacktrace
+        run: ./gradlew createReobfLeavesclipJar
       - name: Create Mojmap Jar
-        run: ./gradlew createMojmapLeavesclipJar -x sangsang-api:test -x sangsang-server:test --stacktrace
+        run: ./gradlew createMojmapLeavesclipJar
         
       - name: Get Release Number
         if: startsWith(github.ref_name, 'ver/')
