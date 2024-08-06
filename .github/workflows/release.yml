@@ -54,9 +54,9 @@ jobs:
         run: ./gradlew build -x radioactive-api:test -x radioactive-server:test --stacktrace
 
       - name: Create Reobf Jar
-        run: ./gradlew createReobfLeavesclipJar -x radioactive-api:test -x radioactive-server:test --stacktrace
+        run: ./gradlew createReobfLeavesclipJar -x sangsang-api:test -x sangsang-server:test --stacktrace
       - name: Create Mojmap Jar
-        run: ./gradlew createMojmapLeavesclipJar -x radioactive-api:test -x radioactive-server:test --stacktrace
+        run: ./gradlew createMojmapLeavesclipJar -x sangsang-api:test -x sangsang-server:test --stacktrace
         
       - name: Get Release Number
         if: startsWith(github.ref_name, 'ver/')
