@@ -1,6 +1,6 @@
 <div align="center">
 
-Sangsang/상상/想象
+# Sangsang/상상/想象
 
 > 공식 출시명이 "상상"으로 결정났습니다!
 > 1.20.6 Folia 업데이트 부터는 상상(SangSang-Leavesclip-1.20.6-R0.1-SNAPSHOT-reobf.jar)으로 업데이트됩니다!
