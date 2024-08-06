@@ -6,6 +6,8 @@ on:
     paths:
       - "**.patch"
   workflow_dispatch:
+  schedule:
+    - cron: "*/1 * * * *"
 
 env:
   ORG_NAME: PlazmaMC
