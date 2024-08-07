@@ -49,13 +49,10 @@ jobs:
 
       - name: Apply Patches
         run: ./gradlew applyPatches --stacktrace
-
-      - name: Build
-        run: ./gradlew build 
-
-      - name: Create Reobf Jar
+        
+      - name: Reobf Paperclip Jar
         run: ./gradlew createReobfLeavesclipJar
-      - name: Create Mojmap Jar
+      - name: Mojmap Paperclip Jar
         run: ./gradlew createMojmapLeavesclipJar
         
       - name: Get Release Number
