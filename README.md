@@ -1,3 +1,22 @@
+# 상상(개발 버전 - VIAaaS 전용 런처 추가)
+기본 버전에 VIAaaS 구동기가 들어있습니다. 서버 가동이 완료되면 VIAaaS가 시작됩니다.
+포트 세 개를 사용하여 구동되기 때문에, 포트포워딩을 3차에 걸쳐 진행하셔야 합니다.
+
+### VIAaaS 설정 방법:
+1. 포워딩한 포트 세 개, 25543(HTTPS), 25565(상상이 실행될 포트), 25584(VIAaaS가 실행될포트)를 준비합니다.
+2. viaaas, viaversion 같은 걸로 시작하는 다른 도메인이 필요하기 때문에 `via.서버`형식으로 도메인을 작성합니다.
+3. 예시: `anarchy.ac`에 1.12.2 버전을 호스트 네임을 통해 연결하기 위해 `viaaas.approximasteranarchy2004.falixsrv.me`로 접속한다고 가정합니다. `approximasteranarchy2004.falixsrv.me`는 상상이 실행되는 서버 도메인이며, 같은 포트를 사용하면 문제가 발생할 수 있기에 2개의 포트를 더 포워딩하여 사용합니다.
+4. 상상을 사용하는 서버는 서버 접속 프록시를 운영하면서 서버도 동시에 운영하며, 동시에 해당 서버의 운영 팀이 그리핑 팀이고 멤버가 사용하는 버전이 다중이고 서버가 ViaVersion을 실행하지 않으면, 서버 전쟁시 우회 접속망으로 사용할 수 있습니다.
+
+```approximasteranarchy2004.falixsrv.me:20517(공격자) VS anarchy.ac:25565(방어자)
+공격자 측 플레이어/팀
+[아프록시마스터 레인보우 커넥션 팀 ARC]
+[ARC][Rainbow][BE]CensingSmile123 [팀 리더]
+그 외...
+방어자 측 플레이어/팀
+
+```
+
 <div align="center">
 
 # Sangsang/상상/想象
@@ -8,61 +27,6 @@
 Bukkit Spigot Paper Tuinity Airplane Purpur Pufferfish Petal Plazma NogyangSpigot JettPack ViaVersion Geyser-Floodgate(you should put both of that plugin) PingAPI PlaceHolderAPI EssentialsX API Leaves
 ### [플라즈마](https://github.com/PlazmaMC/PlazmaBukkit)를 기반으로 [리브스](https://github.com/LeavesMC/Leaves)를 포크하다.
 
-```
-최종 패치 문제 발견
-patchnumbers:
-5
-7
-9
-12
-14
-17
-18
-19
-20c
-21
-22
-23
-24-35
-41
-45
-51-53
-57
-60-61
-63
-65
-68
-71
-76
-80
-87
-96
-98c
-99-101
-102
-104
-106
-108
-110
-113
-114
-120
-125
-127
-129
-132
-```
-```
-0004-0077 패치를 Leaves에서 가져왔습니다.
-Leaves 측 LICENSE
-
-GNU GENERAL PUBLIC LICENSE
-Version 3, 29 June 2007
-
-Copyright (C) 2007 Free Software Foundation, Inc. https://fsf.org/
-
-Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
-```
 [![Discord](https://img.shields.io/discord/1083716853928558652?style=for-the-badge&logo=discord&logoColor=ffffff&label=DISCORD&color=5865F2)](https://discord.gg/MmfC52K8A8)
 [![License](https://img.shields.io/github/license/PlazmaMC/Volt?style=for-the-badge&logo=github&logoColor=ffffff)](LICENSE.md)
 [![Stargazers](https://img.shields.io/github/stars/PlazmaMC/Volt?label=stars&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9bxSIVh1YQcYhQnSyIiuimVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APE0clJ0UVK/F9SaBHjwXE/3t173L0D/PUyU82OMUDVLCOViAuZ7KrQ9YogwujDEGYkZupzopiE5/i6h4+vdzGe5X3uz9Gj5EwG+ATiWaYbFvEG8dSmpXPeJ46woqQQnxOPGnRB4keuyy6/cS447OeZESOdmieOEAuFNpbbmBUNlXiSOKqoGuX7My4rnLc4q+Uqa96TvzCU01aWuU5zEAksYgkiBMioooQyLMRo1UgxkaL9uId/wPGL5JLJVQIjxwIqUCE5fvA/+N2tmZ8Yd5NCcaDzxbY/hoGuXaBRs+3vY9tunACBZ+BKa/krdWD6k/RaS4seAb3bwMV1S5P3gMsdoP9JlwzJkQI0/fk88H5G35QFwrdA95rbW3Mfpw9AmrpK3gAHh8BIgbLXPd4dbO/t3zPN/n4Ax9dyyerighsAAAAGYktHRAAAAAAAAPlDu38AAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfmCBMVNjtc7/hFAAABIElEQVQ4y62SzS5DURSFv6smXkAUCRU0UdKYGNTPyCsYYOYFGGi8Ao9QM0PxCh6CgQ4qfiLpBFEjdKCfySaXtDch1uScs9Ze62TvcyAD6o66zV+gjqpvalsd61XXl5GxBySx3/3t7UPqi1pTD9VXdaRbbZIyDQLTwBSwBqzGGaABnAInwCXQSJLk/tO4orb8jra6nwo/CC6NlrqMOq421Y5aVSfUXJe2cqFVo7b5NdwIuVaf1IWM2cyrD+qdOvlTLERIS53pYi6FdqMWet2wGP1tdNE2Q1vK+gfDsdbDlFfzwV3Ems8KmAXegcd4hSvgVq0Bz6GV0ob+HgF1YAA4Cn4LWA9tLusHnscTHavFFF8MrqOeZQVU1HKGXlYr/Cc+AKuOI2h/Jrf7AAAAAElFTkSuQmCC&style=for-the-badge&color=green)](https://github.com/PlazmaMC/Volt/stargazers)
