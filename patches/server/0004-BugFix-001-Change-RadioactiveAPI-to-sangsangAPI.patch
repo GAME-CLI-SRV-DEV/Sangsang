@@ -1,0 +1,24 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Outfit7TSB <sunnybunnies09@naver.com>
+Date: Wed, 7 Aug 2024 21:32:52 +0900
+Subject: [PATCH] BugFix 001 Change RadioactiveAPI to sangsangAPI
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+상상 버킷에서 API 버전을 Unknown-Version으로 표기하는 버그가 발생하여
+플러그인/서버가 먹통이 되는 사태가 발생하여 핫픽스를 배포합니다.
+
+diff --git a/src/main/java/io/papermc/paper/ServerBrandConstants.java b/src/main/java/io/papermc/paper/ServerBrandConstants.java
+index f06b65b4380f7e8f186c6265af1144b94ee36a9a..590976acf06a2b92c33108caf985c6d104ca7eae 100644
+--- a/src/main/java/io/papermc/paper/ServerBrandConstants.java
++++ b/src/main/java/io/papermc/paper/ServerBrandConstants.java
+@@ -6,7 +6,7 @@ public enum ServerBrandConstants {;
+ 
+     // Basic brand informations
+     public static final String BRAND_NAME = "Sangsang (RadioActive)";
+-    public static final String RESOURCE_PATH = "META-INF/maven/org.game.fubaoforever.nocites.radioactive/radioactive-api/pom.properties";
++    public static final String RESOURCE_PATH = "META-INF/maven/org.game.fubaoforever.nocites.radioactive/sangsang-api/pom.properties";
+ 
+     @Nullable
+     public static final String ASCII_LOGO = """

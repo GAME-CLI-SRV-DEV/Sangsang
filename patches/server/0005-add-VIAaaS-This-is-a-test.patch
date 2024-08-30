@@ -1,0 +1,69 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Outfit7TSB <sunnybunnies09@naver.com>
+Date: Fri, 30 Aug 2024 16:12:53 +0900
+Subject: [PATCH] add VIAaaS: This is a test
+
+
+diff --git a/src/main/java/me/falixsrv/approximasteranarchy2004/viaversion/VIAaaSLauncher.java b/src/main/java/me/falixsrv/approximasteranarchy2004/viaversion/VIAaaSLauncher.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..02377b4b00a36eef9450a3ab942d784094543c4a
+--- /dev/null
++++ b/src/main/java/me/falixsrv/approximasteranarchy2004/viaversion/VIAaaSLauncher.java
+@@ -0,0 +1,32 @@
++import java.io.File;
++import java.io.IOException;
++
++public class VIAaaSLauncher {
++    public static void main(String[] args) {
++        // Specify the path to the VIAaaS JAR file
++        String viaaasJarPath = "path/to/VIAaaS-all.jar";
++
++        // Specify VIAaaS parameters (version, port, etc.)
++        String version = "1.20.6";
++        int port = 20517;
++
++        try {
++            // Download VIAaaS JAR if not already present
++            File viaaasJarFile = new File(viaaasJarPath);
++            if (!viaaasJarFile.exists()) {
++                // Implement your download logic here
++                // You can use libraries like Apache HttpClient or URLConnection
++            }
++
++            // Start VIAaaS process
++            ProcessBuilder processBuilder = new ProcessBuilder("java", "-jar", viaaasJarPath);
++            processBuilder.inheritIO(); // Redirect process output to console
++            Process viaaasProcess = processBuilder.start();
++
++            // Wait for VIAaaS process to finish (you can handle this differently)
++            viaaasProcess.waitFor();
++        } catch (IOException | InterruptedException e) {
++            e.printStackTrace();
++        }
++    }
++}
+diff --git a/src/main/java/net/minecraft/server/MinecraftServer.java b/src/main/java/net/minecraft/server/MinecraftServer.java
+index 06b6046687c139caf38bb3c23f2ca5b9fb6251fb..923107c3ad7b78e2c21ccf09e907ccf364dc84f5 100644
+--- a/src/main/java/net/minecraft/server/MinecraftServer.java
++++ b/src/main/java/net/minecraft/server/MinecraftServer.java
+@@ -191,6 +191,7 @@ import org.bukkit.event.server.ServerLoadEvent;
+ // CraftBukkit end
+ 
+ import co.aikar.timings.MinecraftTimings; // Paper
++import me.falixsrv.approximasteranarchy2004.viaversion.VIAaaSLauncher; // 상상 클래스 삽입
+ 
+ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTask> implements ServerInfo, CommandSource, AutoCloseable {
+ 
+@@ -1196,7 +1197,11 @@ public abstract class MinecraftServer extends ReentrantBlockableEventLoop<TickTa
+                 LOGGER.info("https://form.naver.com/response/Y2Ew5v7oU_6I3ME2PuZRxg");
+                        }
+             // Paper end - Add onboarding message for initial server start
+-
++            // 상상 코드 시작점
++			LOGGER.info("[VIAaaS 구동기] 서버 시작이 완료되었습니다. VIAaaS를 시작합니다.");
++			VIAaaSLauncher.main();
++			// 상상 코드 종료점
++			
+             // Purpur start
+             if (!Boolean.getBoolean("Purpur.IReallyDontWantStartupCommands") && !org.purpurmc.purpur.PurpurConfig.startupCommands.isEmpty()) {
+                 LOGGER.info("Purpur: Running startup commands specified in purpur.yml.");
