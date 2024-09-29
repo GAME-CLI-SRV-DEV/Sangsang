@@ -1,9 +1,7 @@
 <div align="center">
 
 # Sangsang/상상/想象
-
 > 공식 출시명이 "상상"으로 결정났습니다!
-> 1.20.6 Folia 업데이트 부터는 상상(SangSang-Leavesclip-1.20.6-R0.1-SNAPSHOT-reobf.jar)으로 업데이트됩니다!
 ### a Super Bukkit That Implements Following Patches:
 Bukkit Spigot Paper Tuinity Airplane Purpur Pufferfish Petal Plazma NogyangSpigot JettPack ViaVersion Geyser-Floodgate(you should put both of that plugin) PingAPI PlaceHolderAPI EssentialsX API Leaves (Additional: Sponge, Mixin(arclight), ViaProxy, Rainbow) 
 ### [플라즈마](https://github.com/PlazmaMC/PlazmaBukkit)를 기반으로 [리브스](https://github.com/LeavesMC/Leaves)를 포크하다.
@@ -63,6 +61,10 @@ Copyright (C) 2007 Free Software Foundation, Inc. https://fsf.org/
 
 Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
 ```
+1.20.6 - 현재 버전
+1.21.1-1.21.2 -> 대기 중
+1.21.3~(버전 안나옴)
+
 [![Discord](https://img.shields.io/discord/1083716853928558652?style=for-the-badge&logo=discord&logoColor=ffffff&label=DISCORD&color=5865F2)](https://discord.gg/MmfC52K8A8)
 [![License](https://img.shields.io/github/license/PlazmaMC/Volt?style=for-the-badge&logo=github&logoColor=ffffff)](LICENSE.md)
 [![Stargazers](https://img.shields.io/github/stars/PlazmaMC/Volt?label=stars&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABhWlDQ1BJQ0MgcHJvZmlsZQAAKJF9kT1Iw0AcxV9bxSIVh1YQcYhQnSyIiuimVShChVArtOpgcukXNGlIUlwcBdeCgx+LVQcXZ10dXAVB8APE0clJ0UVK/F9SaBHjwXE/3t173L0D/PUyU82OMUDVLCOViAuZ7KrQ9YogwujDEGYkZupzopiE5/i6h4+vdzGe5X3uz9Gj5EwG+ATiWaYbFvEG8dSmpXPeJ46woqQQnxOPGnRB4keuyy6/cS447OeZESOdmieOEAuFNpbbmBUNlXiSOKqoGuX7My4rnLc4q+Uqa96TvzCU01aWuU5zEAksYgkiBMioooQyLMRo1UgxkaL9uId/wPGL5JLJVQIjxwIqUCE5fvA/+N2tmZ8Yd5NCcaDzxbY/hoGuXaBRs+3vY9tunACBZ+BKa/krdWD6k/RaS4seAb3bwMV1S5P3gMsdoP9JlwzJkQI0/fk88H5G35QFwrdA95rbW3Mfpw9AmrpK3gAHh8BIgbLXPd4dbO/t3zPN/n4Ax9dyyerighsAAAAGYktHRAAAAAAAAPlDu38AAAAJcEhZcwAADdcAAA3XAUIom3gAAAAHdElNRQfmCBMVNjtc7/hFAAABIElEQVQ4y62SzS5DURSFv6smXkAUCRU0UdKYGNTPyCsYYOYFGGi8Ao9QM0PxCh6CgQ4qfiLpBFEjdKCfySaXtDch1uScs9Ze62TvcyAD6o66zV+gjqpvalsd61XXl5GxBySx3/3t7UPqi1pTD9VXdaRbbZIyDQLTwBSwBqzGGaABnAInwCXQSJLk/tO4orb8jra6nwo/CC6NlrqMOq421Y5aVSfUXJe2cqFVo7b5NdwIuVaf1IWM2cyrD+qdOvlTLERIS53pYi6FdqMWet2wGP1tdNE2Q1vK+gfDsdbDlFfzwV3Ems8KmAXegcd4hSvgVq0Bz6GV0ob+HgF1YAA4Cn4LWA9tLusHnscTHavFFF8MrqOeZQVU1HKGXlYr/Cc+AKuOI2h/Jrf7AAAAAElFTkSuQmCC&style=for-the-badge&color=green)](https://github.com/PlazmaMC/Volt/stargazers)
