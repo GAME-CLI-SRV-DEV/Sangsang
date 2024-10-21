@@ -62,7 +62,8 @@ Copyright (C) 2007 Free Software Foundation, Inc. https://fsf.org/
 Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
 ```
 1.20.6 - 현재 버전
-1.21.1-1.21.2 -> 대기 중
+1.21.1-1.21.2 -> 1.21.1 서버 릴리즈 확인
+1.21.1-R0.1-SNAPSHOT 출시 예정
 1.21.3~(버전 안나옴)
 
 [![Discord](https://img.shields.io/discord/1083716853928558652?style=for-the-badge&logo=discord&logoColor=ffffff&label=DISCORD&color=5865F2)](https://discord.gg/MmfC52K8A8)
