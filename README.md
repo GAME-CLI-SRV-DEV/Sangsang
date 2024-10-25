@@ -2,6 +2,7 @@
 
 # Sangsang/상상/想象
 > 공식 출시명이 "상상"으로 결정났습니다!
+
 ### a Super Bukkit That Implements Following Patches:
 Bukkit Spigot Paper Tuinity Airplane Purpur Pufferfish Petal Plazma NogyangSpigot JettPack ViaVersion Geyser-Floodgate(you should put both of that plugin) PingAPI PlaceHolderAPI EssentialsX API Leaves (Additional: Sponge, Mixin(arclight), ViaProxy, Rainbow) 
 ### [플라즈마](https://github.com/PlazmaMC/PlazmaBukkit)를 기반으로 [리브스](https://github.com/LeavesMC/Leaves)를 포크하다.
@@ -76,6 +77,11 @@ Everyone is permitted to copy and distribute verbatim copies of this license doc
 
 </div>
 
+> [!WARNING]
+> 
+> 경고! 상상 1.21.1의 안정버전은 없을 것이며, 1.21.2(3)이 출시되게 되면 지원이 중단됩니다.(Deprecated)
+>
+ 
 > [!IMPORTANT]
 > 
 > 퍼퍼, 페이퍼 측 시험 빌드 중!
